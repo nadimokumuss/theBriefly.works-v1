@@ -4,59 +4,62 @@
 
 @layer base {
   :root {
-    /* Base Colors - Industrial Tech Palette */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    /* ✨ Soft Industrial (Sage) Color Palette */
+    --background: 30 10% 96%;      /* Warm Off-White */
+    --foreground: 30 8% 28%;       /* Warm Slate */
 
-    /* Brand Colors - Digital Assembly Line */
-    --primary: 222 47% 11%;        /* Deep Industrial Blue-Black */
-    --primary-foreground: 0 0% 98%;
+    /* Brand Colors - Artisanal Workshop meets Modern Platform */
+    --primary: 30 8% 28%;          /* Warm Slate (sıcak koyu gri-kahve) */
+    --primary-foreground: 30 10% 96%;
 
-    --secondary: 210 40% 96%;      /* Light Tech Gray */
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 30 12% 92%;       /* Light Warm Gray */
+    --secondary-foreground: 30 8% 28%;
 
-    --accent: 217 91% 60%;         /* Electric Blue - For CTAs */
-    --accent-foreground: 0 0% 98%;
+    --accent: 150 22% 50%;         /* Muted Sage (pastel yeşil-gri) */
+    --accent-foreground: 30 10% 96%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 30 12% 92%;
+    --muted-foreground: 30 6% 65%; /* Mid-tone Warm Gray */
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 65% 55%;      /* Soft Red (not harsh) */
+    --destructive-foreground: 30 10% 96%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 11%;
+    --border: 30 12% 88%;          /* Very Subtle Border */
+    --input: 30 12% 88%;
+    --ring: 150 22% 50%;           /* Sage Accent for Focus */
 
     --radius: 0.5rem;
 
-    /* Industrial Animation Tokens */
-    --transition-mechanical: cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-assembly: cubic-bezier(0.65, 0, 0.35, 1);
+    /* ⚡ Calm & Deliberate Animation Tokens */
+    --transition-calm: cubic-bezier(0.25, 0.1, 0.25, 1); /* ease-out quad */
+    --duration-default: 800ms;     /* Slow, no rush */
+    --duration-fast: 400ms;        /* Page transitions */
+    --duration-hover: 200ms;       /* Button hovers */
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 0 0% 98%;
+    /* Dark Mode: Warm Industrial */
+    --background: 30 8% 12%;       /* Dark Warm Slate */
+    --foreground: 30 10% 96%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 30 10% 96%;         /* Light text in dark mode */
+    --primary-foreground: 30 8% 12%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 30 10% 18%;       /* Dark Warm Gray */
+    --secondary-foreground: 30 10% 96%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 150 25% 55%;         /* Slightly brighter Sage for dark mode */
+    --accent-foreground: 30 8% 12%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 30 10% 18%;
+    --muted-foreground: 30 8% 65%;
 
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 30 10% 96%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 212 95% 76%;
+    --border: 30 10% 22%;
+    --input: 30 10% 22%;
+    --ring: 150 25% 55%;
   }
 }
 
@@ -70,20 +73,25 @@
   }
 }
 
-/* Industrial Grid Pattern (Optional background texture) */
+/* Soft Industrial Grid Pattern - Very Subtle */
 @layer utilities {
   .grid-pattern {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
+      linear-gradient(hsla(30, 8%, 28%, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(30, 8%, 28%, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
-  .assembly-line-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--accent)) 100%
-    );
+  /* Warm shadow utility for cards */
+  .shadow-warm {
+    box-shadow:
+      0 1px 3px 0 hsla(30, 8%, 28%, 0.08),
+      0 1px 2px -1px hsla(30, 8%, 28%, 0.06);
+  }
+
+  .shadow-warm-lg {
+    box-shadow:
+      0 10px 15px -3px hsla(30, 8%, 28%, 0.08),
+      0 4px 6px -4px hsla(30, 8%, 28%, 0.06);
   }
 }
