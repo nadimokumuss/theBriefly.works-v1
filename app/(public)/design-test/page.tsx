@@ -88,11 +88,11 @@ export default function DesignTestPage() {
           <div>
             <h2 className="text-2xl font-bold mb-2">Alternative Color Schemes</h2>
             <p className="text-muted-foreground">
-              Daha "Industrial" bir his için alternatif paletler
+              Soft, pastel, göz yormayan renkler - Özgün ve sade
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Option 1: Current (Industrial Blue) */}
             <Card className="border-2 border-primary">
               <CardHeader>
@@ -149,6 +149,52 @@ export default function DesignTestPage() {
                 </div>
                 <p className="text-sm text-muted-foreground">
                   Futuristik, "digital assembly" vurgusu
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Option 4: Soft Industrial (Sage) - RECOMMENDED */}
+            <Card className="border-2 border-green-400">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  Option 4: Soft Industrial (Sage)
+                  <Badge className="bg-green-600">Öneri</Badge>
+                </CardTitle>
+                <CardDescription>
+                  Warm Slate + Muted Sage (pastel yeşil-gri)
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex gap-2">
+                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(30, 8%, 28%)" }} />
+                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(150, 22%, 50%)" }} />
+                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(30, 10%, 96%)" }} />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  ✨ Sakin, özgün, göz yormayan. Artisanal workshop + modern platform
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Option 5: Soft Industrial (Blue) */}
+            <Card className="border-2 border-blue-300">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  Option 5: Soft Industrial (Blue)
+                  <Badge variant="secondary">Alternatif</Badge>
+                </CardTitle>
+                <CardDescription>
+                  Warm Slate + Dusty Blue (pastel mavi-gri)
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex gap-2">
+                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(30, 8%, 28%)" }} />
+                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(210, 18%, 55%)" }} />
+                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(30, 10%, 96%)" }} />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Daha evrensel, yine soft. Classic ama sıcak
                 </p>
               </CardContent>
             </Card>
@@ -221,12 +267,12 @@ export default function DesignTestPage() {
 
         {/* Animation Tests */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold">Industrial Animations</h2>
+          <h2 className="text-2xl font-bold">Animation Styles</h2>
           <p className="text-muted-foreground">
-            "Digital Assembly Line" için mekanik, geometric animasyonlar
+            Smooth, yavaş, sakin animasyonlar - Acelesi yok, kontrollü
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             {/* Smooth Slide */}
             <motion.div
               initial={{ x: -100, opacity: 0 }}
@@ -263,12 +309,30 @@ export default function DesignTestPage() {
                 <p className="font-semibold">Assembly Ease</p>
               </Card>
             </motion.div>
+
+            {/* Calm & Deliberate - RECOMMENDED */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "tween",
+                ease: [0.25, 0.1, 0.25, 1], // ease-out quad - gentle deceleration
+                duration: 0.8
+              }}
+            >
+              <Card className="h-40 flex items-center justify-center border-2 border-green-400">
+                <div className="text-center">
+                  <p className="font-semibold">Calm & Deliberate</p>
+                  <Badge className="mt-2 bg-green-600">Öneri</Badge>
+                </div>
+              </Card>
+            </motion.div>
           </div>
 
-          <Card className="p-6 bg-secondary">
+          <Card className="p-6 bg-green-50 border-green-200">
             <p className="text-sm text-muted-foreground">
-              <strong>Öneri:</strong> "Assembly Line" teması için cubic-bezier easing kullan.
-              Smooth ama deliberate (kasıtlı) hareketler. Çok hızlı değil, kontrollü.
+              <strong>✨ Öneri:</strong> "Calm & Deliberate" - 800ms ease-out quad easing.
+              Yavaş, smooth, göz yormayan. Profesyonel ama sıcak. Kullanıcı acele etmiyor.
             </p>
           </Card>
         </section>
