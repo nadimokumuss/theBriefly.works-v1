@@ -157,20 +157,19 @@ The Briefly ile kreatif işlerinizi standart paketler veya custom squad ile yön
 
 ---
 
-## ❓ Karar Verilecek Konular
+## ✅ KARARLAR ALINDI
 
 ### 1. Hero Headline
-- [ ] Option A: "Kreatif Ekibinizi Dijital Montaj Hattına Dönüştürün"
-- [ ] Option B: "Ajans Kalitesi, Platform Hızı"
-- [ ] Custom: [Senin önerilerin?]
+- [x] **Option B: "Ajans Kalitesi, Platform Hızı"**
+- Alt: "Pahalı ajanslardan bıktınız mı? Riskli freelancer'lardan yoruldunuz mu? The Briefly ile kreatif işlerinizi standart paketler veya custom squad ile yönetin."
 
 ### 2. Custom Squad Section
-- [ ] Interactive mini calculator (harder, more engaging)
-- [ ] Static preview + CTA to full calculator (easier, faster to build)
+- [x] **Static preview + CTA to full calculator**
+- Rationale: Hızlı build, homepage temiz kalır, full calculator /paketler'de
 
 ### 3. Social Proof Section
-- [ ] Phase 1'e dahil et (fake data ile)
-- [ ] Phase 1.5'e ertele (gerçek data bekle)
+- [x] **Phase 1'e dahil et (fake data ile)**
+- Placeholder testimonials ve stats gösterilecek
 
 ### 4. Sections Sırası
 Yukarıdaki sıra uygun mu yoksa değişiklik yapalım mı?

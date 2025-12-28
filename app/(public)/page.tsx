@@ -1,15 +1,23 @@
+import { Hero } from "@/components/sections/Hero";
+import { ProblemSolution } from "@/components/sections/ProblemSolution";
+import { CustomSquadTeaser } from "@/components/sections/CustomSquadTeaser";
+import { PricingPreview } from "@/components/sections/PricingPreview";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { SocialProof } from "@/components/sections/SocialProof";
+import { SalesAffiliateTeaser } from "@/components/sections/SalesAffiliateTeaser";
+import { FinalCTA } from "@/components/sections/FinalCTA";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm flex flex-col gap-8">
-        <h1 className="text-4xl font-bold text-center">
-          The Briefly
-        </h1>
-        <p className="text-xl text-center text-muted-foreground">
-          Digital Assembly Line for Creative Services
-        </p>
-        <div className="grid-pattern w-full h-32 rounded-lg border" />
-      </div>
+    <main className="min-h-screen">
+      <Hero />
+      <ProblemSolution />
+      <CustomSquadTeaser />
+      <PricingPreview />
+      <HowItWorks />
+      <SocialProof />
+      <SalesAffiliateTeaser />
+      <FinalCTA />
     </main>
   );
 }
