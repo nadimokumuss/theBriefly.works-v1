@@ -79,12 +79,15 @@ The folder structure must use **Route Groups** to prepare for the multi-role das
 
 * **Framework:** Next.js 14+ (App Router) - Prioritizing Server Side Rendering (SSR) for SEO.
 * **Language:** TypeScript (Strict mode enabled; no `any` types).
-* **Styling:** Tailwind CSS.
+* **Validation:** Zod - Runtime type validation for forms, API responses, and user input.
+* **Styling:** Tailwind CSS + CSS Variables Hybrid
+  * Use Tailwind utilities for layout/spacing/responsive design
+  * Use CSS Variables for brand-specific colors, industrial animations, and unique design tokens
+  * Ensures both rapid development AND unique "Digital Assembly Line" branding
 * **UI Library:** **Shadcn/UI**. This is mandatory to achieve the "Systematic/SaaS" look (clean grids, consistent components).
 * **Icons:** Lucide React.
-* **Animation:** Framer Motion (Use subtly for entrance animations to signify "Flow").
-- **Language:** TypeScript.
-- **Content Language:** Turkish.
+* **Animation:** Framer Motion (Bold geometric/mechanical animations for industrial tech vibe, not just subtle fades).
+* **Content Language:** Turkish.
 
 ## Geliştirme Aşamaları
 
