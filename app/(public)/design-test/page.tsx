@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,20 @@ import { motion } from "framer-motion";
 import { fadeInUp, fadeInUpStagger, fadeInUpChild, hoverScale } from "@/lib/animations";
 
 export default function DesignTestPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-background p-8 flex items-center justify-center">
+        <p className="text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-7xl mx-auto space-y-12">
@@ -102,19 +117,19 @@ export default function DesignTestPage() {
         {/* Alternative Color Schemes */}
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold mb-2">Alternative Color Schemes</h2>
+            <h2 className="text-2xl font-bold mb-2">Tested Color Schemes</h2>
             <p className="text-muted-foreground">
-              Soft, pastel, göz yormayan renkler - Özgün ve sade
+              Option 4 (Sage) seçildi - Diğerleri test edildi, reddedildi
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Option 1: Current (Industrial Blue) */}
-            <Card className="border-2 border-primary">
+            {/* Option 1: Rejected */}
+            <Card className="opacity-60">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   Option 1: Industrial Blue
-                  <Badge>Mevcut</Badge>
+                  <Badge variant="outline" className="text-xs">Reddedildi</Badge>
                 </CardTitle>
                 <CardDescription>
                   Deep blue-black + Electric blue accent
@@ -126,15 +141,18 @@ export default function DesignTestPage() {
                   <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(217, 91%, 60%)" }} />
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Tech-forward, modern SaaS vibes
+                  ❌ Çok keskin, agresif, klişe
                 </p>
               </CardContent>
             </Card>
 
-            {/* Option 2: Steel Gray */}
-            <Card>
+            {/* Option 2: Rejected */}
+            <Card className="opacity-60">
               <CardHeader>
-                <CardTitle>Option 2: Steel Gray</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  Option 2: Steel Gray
+                  <Badge variant="outline" className="text-xs">Reddedildi</Badge>
+                </CardTitle>
                 <CardDescription>
                   Metalik griler + Turuncu aksan
                 </CardDescription>
@@ -145,15 +163,18 @@ export default function DesignTestPage() {
                   <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(25, 95%, 53%)" }} />
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Daha "machinery" hissi, ağır sanayi
+                  ❌ Turuncu çok sert, ağır sanayi hissi
                 </p>
               </CardContent>
             </Card>
 
-            {/* Option 3: Charcoal + Cyan */}
-            <Card>
+            {/* Option 3: Rejected */}
+            <Card className="opacity-60">
               <CardHeader>
-                <CardTitle>Option 3: Charcoal + Cyan</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  Option 3: Charcoal + Cyan
+                  <Badge variant="outline" className="text-xs">Reddedildi</Badge>
+                </CardTitle>
                 <CardDescription>
                   Koyu antrasit + Neon cyan
                 </CardDescription>
@@ -164,17 +185,17 @@ export default function DesignTestPage() {
                   <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(180, 100%, 50%)" }} />
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Futuristik, "digital assembly" vurgusu
+                  ❌ Neon cyan göz yoruyor, çok futuristik
                 </p>
               </CardContent>
             </Card>
 
-            {/* Option 4: Soft Industrial (Sage) - RECOMMENDED */}
-            <Card className="border-2 border-green-400">
+            {/* Option 4: SELECTED */}
+            <Card className="border-4 border-accent shadow-warm-lg bg-accent/5">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   Option 4: Soft Industrial (Sage)
-                  <Badge className="bg-green-600">Öneri</Badge>
+                  <Badge className="bg-accent">✓ SEÇİLDİ</Badge>
                 </CardTitle>
                 <CardDescription>
                   Warm Slate + Muted Sage (pastel yeşil-gri)
@@ -182,22 +203,22 @@ export default function DesignTestPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex gap-2">
-                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(30, 8%, 28%)" }} />
-                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(150, 22%, 50%)" }} />
-                  <div className="w-full h-12 rounded" style={{ backgroundColor: "hsl(30, 10%, 96%)" }} />
+                  <div className="w-full h-12 rounded border-2 border-primary" style={{ backgroundColor: "hsl(30, 8%, 28%)" }} />
+                  <div className="w-full h-12 rounded border-2 border-accent" style={{ backgroundColor: "hsl(150, 22%, 50%)" }} />
+                  <div className="w-full h-12 rounded border-2" style={{ backgroundColor: "hsl(30, 10%, 96%)" }} />
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm font-medium">
                   ✨ Sakin, özgün, göz yormayan. Artisanal workshop + modern platform
                 </p>
               </CardContent>
             </Card>
 
-            {/* Option 5: Soft Industrial (Blue) */}
-            <Card className="border-2 border-blue-300">
+            {/* Option 5: Alternative */}
+            <Card className="opacity-60">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   Option 5: Soft Industrial (Blue)
-                  <Badge variant="secondary">Alternatif</Badge>
+                  <Badge variant="outline" className="text-xs">Alternatifti</Badge>
                 </CardTitle>
                 <CardDescription>
                   Warm Slate + Dusty Blue (pastel mavi-gri)
@@ -388,27 +409,30 @@ export default function DesignTestPage() {
           </div>
         </section>
 
-        {/* Decision Checklist */}
-        <Card className="bg-primary text-primary-foreground">
+        {/* Decision Summary */}
+        <Card className="bg-accent/10 border-accent shadow-warm-lg">
           <CardHeader>
-            <CardTitle>Karar Verilecek Konular</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              ✅ Tüm Kararlar Alındı
+              <Badge className="bg-accent">Finalized</Badge>
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="space-y-2">
               <p className="font-semibold">1. Renk Paleti</p>
-              <p className="text-sm opacity-90">Hangi color scheme ile devam ediyoruz?</p>
+              <p className="text-sm text-muted-foreground">✅ Soft Industrial (Sage) - Option 4</p>
             </div>
             <div className="space-y-2">
               <p className="font-semibold">2. Animasyon Stili</p>
-              <p className="text-sm opacity-90">Smooth, Mechanical, veya Assembly easing?</p>
+              <p className="text-sm text-muted-foreground">✅ Calm & Deliberate - 800ms ease-out quad</p>
             </div>
             <div className="space-y-2">
               <p className="font-semibold">3. Grid Pattern Kullanımı</p>
-              <p className="text-sm opacity-90">Background'larda grid pattern kullanacak mıyız?</p>
+              <p className="text-sm text-muted-foreground">✅ Evet - Hero sections + feature backgrounds (subtle)</p>
             </div>
             <div className="space-y-2">
-              <p className="font-semibold">4. Button Stilleri</p>
-              <p className="text-sm opacity-90">Default variants'tan farklı bir şey mi istiyoruz?</p>
+              <p className="font-semibold">4. Component Stilleri</p>
+              <p className="text-sm text-muted-foreground">✅ Shadcn defaults + Warm shadows</p>
             </div>
           </CardContent>
         </Card>
