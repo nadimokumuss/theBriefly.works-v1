@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { motion } from "framer-motion";
+import { fadeInUp, fadeInUpStagger, fadeInUpChild, hoverScale } from "@/lib/animations";
 
 export default function DesignTestPage() {
   return (
@@ -13,14 +14,16 @@ export default function DesignTestPage() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
           className="text-center space-y-4"
         >
           <h1 className="text-4xl font-bold">Design System Test Lab</h1>
           <p className="text-muted-foreground text-lg">
-            The Briefly - Industrial Tech Design System
+            The Briefly - Soft Industrial Design System ✨
           </p>
+          <Badge className="bg-accent">Finalized!</Badge>
         </motion.div>
 
         <Separator />
@@ -28,57 +31,70 @@ export default function DesignTestPage() {
         {/* Color Palette Section */}
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold mb-2">Color Palette</h2>
+            <h2 className="text-2xl font-bold mb-2">✅ Final Color Palette: Soft Industrial (Sage)</h2>
             <p className="text-muted-foreground">
-              Mevcut "Industrial Tech" renk paleti. Alternatif öneriler için aşağı kaydır.
+              Özgün, soft, göz yormayan - Artisanal workshop meets modern platform
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Card>
-              <CardContent className="p-6 space-y-4">
-                <div className="w-full h-24 bg-primary rounded" />
-                <div>
-                  <p className="font-semibold">Primary</p>
-                  <p className="text-xs text-muted-foreground">Deep Industrial Blue-Black</p>
-                  <code className="text-xs">hsl(222, 47%, 11%)</code>
-                </div>
-              </CardContent>
-            </Card>
+          <motion.div
+            variants={fadeInUpStagger}
+            initial="initial"
+            animate="animate"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          >
+            <motion.div variants={fadeInUpChild}>
+              <Card className="shadow-warm">
+                <CardContent className="p-6 space-y-4">
+                  <div className="w-full h-24 bg-primary rounded shadow-warm" />
+                  <div>
+                    <p className="font-semibold">Primary</p>
+                    <p className="text-xs text-muted-foreground">Warm Slate</p>
+                    <code className="text-xs bg-secondary px-1 rounded">hsl(30, 8%, 28%)</code>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
-              <CardContent className="p-6 space-y-4">
-                <div className="w-full h-24 bg-accent rounded" />
-                <div>
-                  <p className="font-semibold">Accent</p>
-                  <p className="text-xs text-muted-foreground">Electric Blue</p>
-                  <code className="text-xs">hsl(217, 91%, 60%)</code>
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div variants={fadeInUpChild}>
+              <Card className="shadow-warm">
+                <CardContent className="p-6 space-y-4">
+                  <div className="w-full h-24 bg-accent rounded shadow-warm" />
+                  <div>
+                    <p className="font-semibold">Accent</p>
+                    <p className="text-xs text-muted-foreground">Muted Sage</p>
+                    <code className="text-xs bg-secondary px-1 rounded">hsl(150, 22%, 50%)</code>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
-              <CardContent className="p-6 space-y-4">
-                <div className="w-full h-24 bg-secondary rounded" />
-                <div>
-                  <p className="font-semibold">Secondary</p>
-                  <p className="text-xs text-muted-foreground">Light Tech Gray</p>
-                  <code className="text-xs">hsl(210, 40%, 96%)</code>
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div variants={fadeInUpChild}>
+              <Card className="shadow-warm">
+                <CardContent className="p-6 space-y-4">
+                  <div className="w-full h-24 bg-secondary rounded shadow-warm" />
+                  <div>
+                    <p className="font-semibold">Secondary</p>
+                    <p className="text-xs text-muted-foreground">Light Warm Gray</p>
+                    <code className="text-xs bg-secondary px-1 rounded">hsl(30, 12%, 92%)</code>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
-              <CardContent className="p-6 space-y-4">
-                <div className="w-full h-24 bg-destructive rounded" />
-                <div>
-                  <p className="font-semibold">Destructive</p>
-                  <p className="text-xs text-muted-foreground">Warning Red</p>
-                  <code className="text-xs">hsl(0, 84%, 60%)</code>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div variants={fadeInUpChild}>
+              <Card className="shadow-warm">
+                <CardContent className="p-6 space-y-4">
+                  <div className="w-full h-24 bg-background rounded border-2" />
+                  <div>
+                    <p className="font-semibold">Background</p>
+                    <p className="text-xs text-muted-foreground">Warm Off-White</p>
+                    <code className="text-xs bg-secondary px-1 rounded">hsl(30, 10%, 96%)</code>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
         </section>
 
         <Separator />
@@ -267,72 +283,70 @@ export default function DesignTestPage() {
 
         {/* Animation Tests */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold">Animation Styles</h2>
+          <h2 className="text-2xl font-bold">✅ Final Animation: Calm & Deliberate</h2>
           <p className="text-muted-foreground">
-            Smooth, yavaş, sakin animasyonlar - Acelesi yok, kontrollü
+            800ms ease-out quad - Smooth, profesyonel, sıcak. Premium feel, no rush.
           </p>
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {/* Smooth Slide */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Using fadeInUp from lib/animations */}
             <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              key="anim-1"
             >
-              <Card className="h-40 flex items-center justify-center">
-                <p className="font-semibold">Smooth Slide In</p>
-              </Card>
-            </motion.div>
-
-            {/* Mechanical Pop */}
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            >
-              <Card className="h-40 flex items-center justify-center">
-                <p className="font-semibold">Mechanical Pop</p>
-              </Card>
-            </motion.div>
-
-            {/* Assembly Line */}
-            <motion.div
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                type: "tween",
-                ease: [0.4, 0, 0.2, 1], // cubic-bezier for mechanical feel
-                duration: 0.6
-              }}
-            >
-              <Card className="h-40 flex items-center justify-center">
-                <p className="font-semibold">Assembly Ease</p>
-              </Card>
-            </motion.div>
-
-            {/* Calm & Deliberate - RECOMMENDED */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "tween",
-                ease: [0.25, 0.1, 0.25, 1], // ease-out quad - gentle deceleration
-                duration: 0.8
-              }}
-            >
-              <Card className="h-40 flex items-center justify-center border-2 border-green-400">
-                <div className="text-center">
-                  <p className="font-semibold">Calm & Deliberate</p>
-                  <Badge className="mt-2 bg-green-600">Öneri</Badge>
+              <Card className="h-48 flex items-center justify-center border-2 border-accent shadow-warm-lg">
+                <div className="text-center space-y-2">
+                  <p className="font-bold text-lg">Calm & Deliberate</p>
+                  <Badge className="bg-accent">Active</Badge>
+                  <p className="text-xs text-muted-foreground px-4">
+                    fadeInUp - 800ms ease-out
+                  </p>
                 </div>
+              </Card>
+            </motion.div>
+
+            {/* Hover Scale Example */}
+            <motion.div
+              variants={hoverScale}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <Card className="h-48 flex items-center justify-center cursor-pointer shadow-warm">
+                <div className="text-center space-y-2">
+                  <p className="font-semibold">Hover Scale</p>
+                  <p className="text-xs text-muted-foreground px-4">
+                    Hover me! 200ms scale(1.02)
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Stagger Children Example */}
+            <motion.div
+              variants={fadeInUpStagger}
+              initial="initial"
+              animate="animate"
+            >
+              <Card className="p-6 space-y-3 h-48 shadow-warm">
+                <p className="font-semibold text-center">Stagger Children</p>
+                {[1, 2, 3].map((i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeInUpChild}
+                    className="h-6 bg-accent/20 rounded"
+                  />
+                ))}
               </Card>
             </motion.div>
           </div>
 
-          <Card className="p-6 bg-green-50 border-green-200">
-            <p className="text-sm text-muted-foreground">
-              <strong>✨ Öneri:</strong> "Calm & Deliberate" - 800ms ease-out quad easing.
-              Yavaş, smooth, göz yormayan. Profesyonel ama sıcak. Kullanıcı acele etmiyor.
+          <Card className="p-6 bg-accent/10 border-accent/30">
+            <p className="text-sm">
+              <strong>✨ Implementation:</strong> All animations use <code className="bg-background px-1.5 py-0.5 rounded text-xs">lib/animations.ts</code>
+              {" "}variants. fadeInUp, hoverScale, fadeInUpStagger - reusable, consistent, professional.
             </p>
           </Card>
         </section>
