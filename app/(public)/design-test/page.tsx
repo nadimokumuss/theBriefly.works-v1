@@ -10,10 +10,16 @@ import { fadeInUp, fadeInUpStagger, fadeInUpChild, hoverScale } from "@/lib/anim
 
 export default function DesignTestPage() {
   const [mounted, setMounted] = useState(false);
+  const [replayKey, setReplayKey] = useState(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Trigger replay for animations on hover
+  const handleReplay = () => {
+    setReplayKey(prev => prev + 1);
+  };
 
   if (!mounted) {
     return (
@@ -315,7 +321,9 @@ export default function DesignTestPage() {
               variants={fadeInUp}
               initial="initial"
               animate="animate"
-              key="anim-1"
+              key={`calm-${replayKey}`}
+              onMouseEnter={handleReplay}
+              className="cursor-pointer"
             >
               <Card className="h-48 flex items-center justify-center border-2 border-accent shadow-warm-lg">
                 <div className="text-center space-y-2">
@@ -323,6 +331,9 @@ export default function DesignTestPage() {
                   <Badge className="bg-accent">Active</Badge>
                   <p className="text-xs text-muted-foreground px-4">
                     fadeInUp - 800ms ease-out
+                  </p>
+                  <p className="text-xs text-accent font-medium">
+                    Hover to replay!
                   </p>
                 </div>
               </Card>
@@ -350,9 +361,15 @@ export default function DesignTestPage() {
               variants={fadeInUpStagger}
               initial="initial"
               animate="animate"
+              key={`stagger-${replayKey}`}
+              onMouseEnter={handleReplay}
+              className="cursor-pointer"
             >
               <Card className="p-6 space-y-3 h-48 shadow-warm">
                 <p className="font-semibold text-center">Stagger Children</p>
+                <p className="text-xs text-muted-foreground text-center mb-2">
+                  Hover to replay!
+                </p>
                 {[1, 2, 3].map((i) => (
                   <motion.div
                     key={i}
