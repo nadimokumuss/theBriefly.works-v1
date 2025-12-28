@@ -10,15 +10,21 @@ import { fadeInUp, fadeInUpStagger, fadeInUpChild, hoverScale } from "@/lib/anim
 
 export default function DesignTestPage() {
   const [mounted, setMounted] = useState(false);
-  const [replayKey, setReplayKey] = useState(0);
+  const [calmKey, setCalmKey] = useState(0);
+  const [staggerKey, setStaggerKey] = useState(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Trigger replay for animations on hover
-  const handleReplay = () => {
-    setReplayKey(prev => prev + 1);
+  // Trigger replay for Calm animation
+  const handleCalmReplay = () => {
+    setCalmKey(prev => prev + 1);
+  };
+
+  // Trigger replay for Stagger animation
+  const handleStaggerReplay = () => {
+    setStaggerKey(prev => prev + 1);
   };
 
   if (!mounted) {
@@ -321,8 +327,8 @@ export default function DesignTestPage() {
               variants={fadeInUp}
               initial="initial"
               animate="animate"
-              key={`calm-${replayKey}`}
-              onMouseEnter={handleReplay}
+              key={`calm-${calmKey}`}
+              onMouseEnter={handleCalmReplay}
               className="cursor-pointer"
             >
               <Card className="h-48 flex items-center justify-center border-2 border-accent shadow-warm-lg">
@@ -361,8 +367,8 @@ export default function DesignTestPage() {
               variants={fadeInUpStagger}
               initial="initial"
               animate="animate"
-              key={`stagger-${replayKey}`}
-              onMouseEnter={handleReplay}
+              key={`stagger-${staggerKey}`}
+              onMouseEnter={handleStaggerReplay}
               className="cursor-pointer"
             >
               <Card className="p-6 space-y-3 h-48 shadow-warm">
