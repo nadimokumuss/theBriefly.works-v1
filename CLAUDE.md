@@ -304,5 +304,343 @@ import { Section } from "@/components/sections/Section";
 
 ---
 
+## Environment Setup
+
+### Prerequisites
+```bash
+# Required versions
+Node.js: 18.x or higher
+npm: 9.x or higher
+Git: Latest stable version
+```
+
+### Initial Setup
+```bash
+# 1. Clone repository
+git clone https://github.com/nadimokumuss/theBriefly.works-v1
+cd v1
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
+npm run dev
+
+# 4. Open browser
+# Navigate to http://localhost:3000
+```
+
+### Environment Variables
+Currently no `.env` file required for Phase 1 (static pages only).
+
+**Future (Phase 2+):**
+```bash
+# .env.local
+DATABASE_URL=          # PostgreSQL/Supabase connection
+NEXTAUTH_SECRET=       # Auth secret
+NEXTAUTH_URL=          # Auth callback URL
+UPLOADTHING_SECRET=    # File upload service (if used)
+STRIPE_SECRET_KEY=     # Payment gateway (Phase 3)
+```
+
+---
+
+## Testing Strategy
+
+### Current Approach (Phase 1)
+Manual testing focused on:
+- Visual regression (compare before/after screenshots)
+- Mobile responsiveness (Chrome DevTools + real devices)
+- Cross-browser compatibility (Chrome, Firefox, Safari)
+- Performance (Lighthouse audits)
+
+### Future Testing (Phase 2+)
+
+#### Unit Tests
+```typescript
+// Example: Testing utility functions
+import { formatPrice } from "@/config/pricing";
+
+describe("formatPrice", () => {
+  it("should format Turkish Lira correctly", () => {
+    expect(formatPrice(15000)).toBe("₺15.000");
+  });
+});
+```
+
+#### Integration Tests
+- Test full user flows (homepage → pricing → signup)
+- API route testing (when APIs are built)
+- Database interactions (Phase 2+)
+
+#### E2E Tests (Playwright/Cypress)
+- Critical user journeys
+- Form submissions
+- Dashboard workflows
+
+---
+
+## Performance Guidelines
+
+### Image Optimization
+```typescript
+// ✅ CORRECT - Use Next.js Image component
+import Image from "next/image";
+
+<Image
+  src="/hero-image.jpg"
+  alt="Description"
+  width={1200}
+  height={600}
+  priority  // For above-the-fold images
+/>
+
+// ❌ WRONG - Regular img tag
+<img src="/hero-image.jpg" alt="Description" />
+```
+
+### Code Splitting
+```typescript
+// Dynamic imports for heavy components
+import dynamic from "next/dynamic";
+
+const HeavyComponent = dynamic(() => import("@/components/HeavyComponent"), {
+  loading: () => <p>Loading...</p>
+});
+```
+
+### Bundle Size Monitoring
+```bash
+# Analyze bundle size
+npm run build
+
+# Check output
+# .next/analyze/client.html
+# .next/analyze/server.html
+```
+
+**Targets:**
+- Total bundle size: <200KB (gzipped)
+- Individual component: <50KB
+
+---
+
+## Security Best Practices
+
+### Input Validation
+```typescript
+// Always validate user input with Zod
+import { z } from "zod";
+
+const ContactFormSchema = z.object({
+  name: z.string().min(2).max(50),
+  email: z.string().email(),
+  message: z.string().min(10).max(1000),
+});
+
+// Validate before processing
+const result = ContactFormSchema.safeParse(formData);
+if (!result.success) {
+  // Handle validation errors
+}
+```
+
+### XSS Prevention
+- Never use `dangerouslySetInnerHTML` unless absolutely necessary
+- Sanitize all user-generated content
+- Use proper HTML escaping
+
+### CSRF Protection
+- Next.js API routes include CSRF protection by default
+- For forms, use POST requests (not GET) for mutations
+
+### Authentication (Phase 2+)
+- Use NextAuth.js for authentication
+- Implement RBAC (Role-Based Access Control)
+- Secure session management
+- HTTP-only cookies for tokens
+
+---
+
+## Error Handling Patterns
+
+### Component Error Boundaries
+```typescript
+// app/error.tsx (Next.js 15 convention)
+"use client";
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  return (
+    <div className="error-container">
+      <h2>Bir şeyler yanlış gitti</h2>
+      <button onClick={reset}>Tekrar Dene</button>
+    </div>
+  );
+}
+```
+
+### Graceful Degradation
+```typescript
+// Always provide fallbacks
+const pricing = pricingTiers.find(tier => tier.id === "pro") ?? pricingTiers[0];
+```
+
+### User-Friendly Error Messages
+```typescript
+// ❌ WRONG - Technical jargon
+throw new Error("Failed to parse JSON response from /api/pricing");
+
+// ✅ CORRECT - User-friendly message
+return {
+  error: "Fiyat bilgileri yüklenirken bir sorun oluştu. Lütfen daha sonra tekrar deneyin."
+};
+```
+
+---
+
+## Troubleshooting & Common Issues
+
+### Issue: Port 3000 already in use
+```bash
+# Windows
+netstat -ano | findstr :3000
+taskkill /PID <PID> /F
+
+# Mac/Linux
+lsof -ti:3000 | xargs kill -9
+
+# Or use different port
+npm run dev -- -p 3001
+```
+
+### Issue: TypeScript errors after npm install
+```bash
+# Clear TypeScript cache
+rm -rf .next
+rm -rf node_modules/.cache
+
+# Reinstall
+npm install
+```
+
+### Issue: Styles not updating
+```bash
+# Clear Next.js cache
+rm -rf .next
+npm run dev
+```
+
+### Issue: Module not found errors
+```bash
+# Verify tsconfig.json paths
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+```
+
+### Issue: Framer Motion hydration mismatch
+```typescript
+// Use useState + useEffect for mount state
+const [mounted, setMounted] = useState(false);
+
+useEffect(() => {
+  setMounted(true);
+}, []);
+
+if (!mounted) return null;
+```
+
+---
+
+## Deployment (Vercel)
+
+### Automatic Deployment
+Every push to `master` branch automatically deploys to production on Vercel.
+
+### Manual Deployment
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+### Build Optimization
+```typescript
+// next.config.js
+module.exports = {
+  images: {
+    domains: ['yourdomain.com'],
+    formats: ['image/avif', 'image/webp'],
+  },
+  compress: true,
+  poweredByHeader: false,
+};
+```
+
+### Environment Variables (Vercel)
+1. Go to Project Settings → Environment Variables
+2. Add variables for Production/Preview/Development
+3. Redeploy after adding variables
+
+---
+
+## Git Workflow Best Practices
+
+### Commit Message Format
+```bash
+# Good commit messages
+git commit -m "Add pricing tier cards to homepage"
+git commit -m "Fix mobile navigation menu overflow"
+git commit -m "Update config: Adjust Pro package pricing"
+
+# Bad commit messages (avoid)
+git commit -m "fix"
+git commit -m "wip"
+git commit -m "asdasd"
+```
+
+### Branch Strategy (Future)
+```bash
+# Feature branches
+git checkout -b feature/custom-builder
+git checkout -b fix/mobile-nav-bug
+
+# Always pull before starting work
+git pull origin master
+
+# Merge into master when complete
+git checkout master
+git merge feature/custom-builder
+git push origin master
+```
+
+---
+
 ## Remember
 This project is a **platform**, not a website. Every decision should consider scalability, maintainability, and the multi-role future while delivering immediate value in Phase 1.
+
+---
+
+## Document Updates
+
+**Last Updated:** 2025-12-30
+**Changes:** Enhanced with environment setup, testing strategy, performance guidelines, security best practices, error handling patterns, troubleshooting guide, deployment instructions, and git workflow best practices.
+
+### Research Sources
+- [Anthropic - Using CLAUDE.MD files](https://claude.com/blog/using-claude-md-files)
+- [Apidog - CLAUDE.md Best Practices](https://apidog.com/blog/claude-md/)
+- [HumanLayer - Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md)
+- [GitHub - Full CLAUDE.md Sample](https://gist.github.com/scpedicini/179626cfb022452bb39eff10becb95fa)
+- [GitHub - awesome-claude-md](https://github.com/josix/awesome-claude-md)

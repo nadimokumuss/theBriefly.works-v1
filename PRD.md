@@ -69,7 +69,32 @@ Immediate priority is to build a robust **Sales Affiliate Network**. We will rec
 
 ---
 
-## 5. Features & Functionality
+## 5. User Stories & Use Cases
+
+### B2B Client Journey
+**As a** marketing manager at an e-commerce startup
+**I want** predictable, transparent creative services
+**So that** I can plan my budget and content calendar without surprises
+
+**Use Case:** Client discovers The Briefly → Reviews pricing tiers → Selects "Pro Package" → Signs up → Receives onboarding → Submits first brief → Receives deliverables within SLA
+
+### Sales Affiliate Journey
+**As a** freelance sales professional
+**I want** to earn commission selling creative services
+**So that** I can build passive income without handling fulfillment
+
+**Use Case:** Affiliate applies → Gets approved → Receives training materials → Admin assigns leads → Affiliate pitches clients → Closes deal → Earns commission
+
+### Admin/Operations Journey
+**As an** operations admin
+**I want** to assign projects and track progress
+**So that** we deliver on time and maintain quality
+
+**Use Case:** Client order comes in → Admin assigns to internal team → Tracks progress through workflow → Ensures QA → Delivers to client → Collects feedback
+
+---
+
+## 6. Features & Functionality
 
 ### A. Public Interface (Visitor & Client Acquisition)
 
@@ -146,7 +171,144 @@ Secure file delivery system (Client Portal) where clients:
 
 ---
 
-## 6. Success Metrics
+## 7. Acceptance Criteria
+
+### Phase 1 Completion Criteria
+The Phase 1 release is considered complete when:
+
+#### Homepage
+- [ ] Hero section loads in <2s
+- [ ] All CTAs are functional and track analytics
+- [ ] Mobile responsive on iOS/Android
+- [ ] SEO meta tags generate proper social previews
+
+#### Pricing Page
+- [ ] All three tier cards display correctly
+- [ ] Pricing data pulls from `config/pricing.ts`
+- [ ] Custom Builder teaser links to future builder page
+- [ ] Price formatting displays correctly in TRY
+
+#### Sales Affiliate Page
+- [ ] Application form validates and submits successfully
+- [ ] Income simulator calculates commission accurately
+- [ ] Page converts at >5% (target metric)
+
+#### Technical Requirements
+- [ ] Lighthouse score >90 for all pages
+- [ ] No TypeScript `any` types in codebase
+- [ ] All components have proper prop types
+- [ ] Git repository has meaningful commit messages
+
+---
+
+## 8. Non-Functional Requirements
+
+### Performance
+- **Page Load Time:** <3s on 3G connection
+- **Time to Interactive:** <5s
+- **Core Web Vitals:**
+  - LCP (Largest Contentful Paint): <2.5s
+  - FID (First Input Delay): <100ms
+  - CLS (Cumulative Layout Shift): <0.1
+
+### Scalability
+- **Phase 1:** Architecture supports 100 concurrent users
+- **Phase 2:** Must scale to 1,000+ concurrent dashboard users
+- **Database:** Prepared for relational data (future PostgreSQL/Supabase)
+
+### Security
+- **Data Protection:** HTTPS enforced, sensitive data encrypted
+- **RBAC:** Role-based access control architecture ready
+- **Input Validation:** All user inputs validated with Zod
+- **File Upload:** Secure file handling with size/type restrictions
+
+### Reliability
+- **Uptime:** 99.5% target (allows ~3.6 hours downtime/month)
+- **Error Handling:** Graceful degradation, user-friendly error messages
+- **Monitoring:** Error tracking ready for integration (future Sentry)
+
+### Accessibility
+- **WCAG 2.1 AA Compliance**
+- Semantic HTML throughout
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast ratios meet standards
+
+### Browser Compatibility
+- **Supported Browsers:**
+  - Chrome/Edge (last 2 versions)
+  - Firefox (last 2 versions)
+  - Safari (last 2 versions)
+  - Mobile Safari/Chrome (iOS 14+, Android 10+)
+
+---
+
+## 9. Assumptions, Risks & Mitigation
+
+### Assumptions
+1. **Manual Fulfillment Viable:** Internal team can handle initial orders without automation
+2. **Affiliate Sales Model:** Sales affiliates can effectively sell B2B services remotely
+3. **Market Demand:** Target audience (SMEs, e-commerce) needs productized creative services
+4. **Pricing Accuracy:** Tiered pricing (15k/35k/75k TRY) aligns with market willingness to pay
+
+### Risks & Mitigation
+
+| Risk | Impact | Probability | Mitigation Strategy |
+|------|--------|-------------|---------------------|
+| Low affiliate signup | High | Medium | Create compelling income calculator, offer referral bonuses |
+| Manual fulfillment bottleneck | High | Medium | Hire 1-2 additional team members before launch, document workflows |
+| Price resistance | Medium | Medium | A/B test pricing, offer first-month discount |
+| Technical debt | Medium | Low | Enforce TypeScript strict mode, code reviews, modular architecture |
+| Competition from agencies | Low | High | Emphasize transparency and speed as differentiators |
+
+---
+
+## 10. Competitive Landscape
+
+### Direct Competitors
+- **Traditional Agencies:** Higher cost, less transparent, longer timelines
+- **Freelance Marketplaces (Upwork, Fiverr):** Variable quality, coordination overhead
+- **Productized Services (Design Pickle, Superside):** Primarily design-focused, less Turkish market presence
+
+### Competitive Advantages
+1. **Turkish Market Focus:** Localized content, payment, support
+2. **Hybrid Model:** Combines marketplace flexibility with agency quality control
+3. **Sales-Led Growth:** Affiliate network creates unique distribution channel
+4. **Multi-Service:** Video + Design + Social Media in one platform
+
+---
+
+## 11. Go-to-Market Strategy
+
+### Phase 1 Launch Plan
+
+#### Pre-Launch (Week -4 to -1)
+- Finalize website and sales materials
+- Recruit 5-10 beta sales affiliates
+- Create social media accounts and content calendar
+- Prepare email sequences for affiliates
+
+#### Launch Week
+- Publish website and announce on LinkedIn/Instagram
+- Activate affiliate outreach with assigned leads
+- Run targeted ads to Turkish SME/e-commerce audience
+- Send press releases to Turkish tech blogs
+
+#### Post-Launch (Month 1-3)
+- Weekly affiliate training sessions
+- A/B test pricing page and CTAs
+- Collect client testimonials from first customers
+- Iterate based on conversion data
+
+### Marketing Channels
+- **LinkedIn:** B2B targeting for client acquisition
+- **Instagram:** Visual portfolio showcase
+- **Affiliate Network:** Primary customer acquisition engine
+- **SEO:** Long-term organic traffic via blog content
+
+---
+
+## 12. Success Metrics
 
 ### Phase 1 Goals
 - **Sales Affiliate Recruitment:** Target number of active sales agents
@@ -162,7 +324,7 @@ Secure file delivery system (Client Portal) where clients:
 
 ---
 
-## 7. User Sitemap (Phase 1 - Public Pages)
+## 13. User Sitemap (Phase 1 - Public Pages)
 
 ### Public Pages Priority
 1. **/** (Home) - High-conversion landing highlighting flexibility and "Custom Squad" concept
@@ -176,7 +338,7 @@ Secure file delivery system (Client Portal) where clients:
 
 ---
 
-## 8. Design Philosophy
+## 14. Design Philosophy
 
 ### Brand Identity
 - **Brand Name:** The Briefly
@@ -194,7 +356,7 @@ Secure file delivery system (Client Portal) where clients:
 
 ---
 
-## 9. Development Strategy (Agile)
+## 15. Development Strategy (Agile)
 
 ### Phase 1 (Current)
 **Timeline:** Q1 2025
@@ -230,7 +392,7 @@ Requirements will change. The architecture must support:
 
 ---
 
-## 10. Technical Requirements
+## 16. Technical Requirements
 
 ### Platform Requirements
 - **SEO Optimization:** Server-Side Rendering (SSR) for all public pages
@@ -250,7 +412,7 @@ Requirements will change. The architecture must support:
 
 ---
 
-## 11. Dependencies & Constraints
+## 17. Dependencies & Constraints
 
 ### Critical Dependencies
 - **No Hard-Coding:** Prices and package details must be in config files (e.g., `config/pricing.ts`)
@@ -264,7 +426,7 @@ Requirements will change. The architecture must support:
 
 ---
 
-## 12. Open Questions & Future Considerations
+## 18. Open Questions & Future Considerations
 
 ### Phase 1 Questions
 - Specific commission structure percentages for affiliates?
@@ -279,13 +441,20 @@ Requirements will change. The architecture must support:
 
 ---
 
-## Appendix
+## 19. Appendix
 
 ### Document History
 - **2025-12-28:** Initial PROJECT_DETAILS.md created
 - **2025-12-30:** Restructured into formal PRD format
+- **2025-12-30:** Enhanced with user stories, acceptance criteria, non-functional requirements, risk analysis, competitive landscape, and GTM strategy
 
 ### Related Documents
 - CLAUDE.md - Technical implementation guide for AI assistants
 - DESIGN_SYSTEM.md - Visual design specifications
 - HOMEPAGE_PLAN.md - Homepage structure and content plan
+
+### Research Sources
+- [Product School - PRD Template](https://productschool.com/blog/product-strategy/product-template-requirements-document-prd)
+- [Perforce - How to Write a PRD](https://www.perforce.com/blog/alm/how-write-product-requirements-document-prd)
+- [Codelevate - Ultimate PRD Guide for B2B SaaS 2025](https://www.codelevate.com/blog/the-ultimate-prd-guide-for-your-b2b-saas-success-in-2025)
+- [Fictiv - PRD Best Practices](https://www.fictiv.com/articles/prd-product-requirements-document)
