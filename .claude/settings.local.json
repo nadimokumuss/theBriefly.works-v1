@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "WebFetch(domain:superside.com)",
+      "WebFetch(domain:www.mayple.com)",
+      "WebFetch(domain:www.designpickle.com)",
+      "WebFetch(domain:www.turing.com)",
+      "WebFetch(domain:www.videohusky.com)",
+      "WebFetch(domain:www.flocksy.com)",
+      "WebFetch(domain:www.marketerhire.com)",
+      "WebFetch(domain:www.penji.co)"
     ]
   }
 }

@@ -34,13 +34,14 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "starter",
     name: "Starter",
-    description: "Küçük işletmeler ve startup'lar için ideal başlangıç paketi",
+    description: "Küçük işletmeler ve yeni kurulan markalar için ideal başlangıç paketi",
     monthlyPrice: 15000,
     features: [
       "2 Reel/Video (30 saniyeye kadar)",
       "5 Sosyal Medya Görseli",
+      "3 iş günü teslimat",
       "Temel revizyon hakkı",
-      "5 iş günü teslimat",
+      "E-posta desteği",
     ],
     services: {
       video: 2,
@@ -56,10 +57,10 @@ export const pricingTiers: PricingTier[] = [
     features: [
       "5 Reel/Video (60 saniyeye kadar)",
       "15 Sosyal Medya Görseli",
+      "24-48 saat express teslimat",
       "Sınırsız revizyon",
-      "3 iş günü teslimat",
       "İçerik stratejisi danışmanlığı",
-      "Öncelikli destek",
+      "Öncelikli destek (24 saat yanıt)",
     ],
     services: {
       video: 5,
@@ -75,8 +76,8 @@ export const pricingTiers: PricingTier[] = [
     features: [
       "Sınırsız Reel/Video (120 saniyeye kadar)",
       "Sınırsız Sosyal Medya Görseli",
+      "12-24 saat premium teslimat",
       "Özel marka stratejisi",
-      "1-2 iş günü teslimat",
       "Özel hesap yöneticisi",
       "Gelişmiş analitik ve raporlama",
       "Video kamera çekimi (aylık 1 gün)",

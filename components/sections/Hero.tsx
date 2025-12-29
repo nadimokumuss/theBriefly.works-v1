@@ -35,10 +35,9 @@ export function Hero() {
 
           {/* Sub Headline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Pahalı ajanslardan bıktınız mı? Riskli freelancer'lardan yoruldunuz mu?
+            Kreatif işlerinizi sabit fiyatla, hızlı teslimatla ve ajans kalitesiyle yönetin.
             <br />
-            <strong className="text-foreground">The Briefly</strong> ile kreatif işlerinizi
-            standart paketler veya custom squad ile yönetin.
+            <strong className="text-foreground">24-48 saat</strong> teslimat. Sınırsız revizyon. İstediğiniz zaman iptal.
           </p>
 
           {/* CTA Buttons */}

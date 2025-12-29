@@ -10,20 +10,23 @@ const testimonials = [
   {
     name: "Ayşe Yılmaz",
     role: "Pazarlama Müdürü, TechStart",
-    content: "The Briefly ile çalışmaya başladıktan sonra sosyal medya performansımız %200 arttı. Ajans kalitesi, freelancer esnekliği - ikisinin en iyisi!",
+    content: "The Briefly ile çalışmaya başladıktan sonra sosyal medya performansımız %200 arttı. Ajans maliyetlerinden yıllık ₺480.000 tasarruf ettik. Ajans kalitesi, platform hızı - ikisinin en iyisi!",
     rating: 5,
+    metric: "%200 performans artışı",
   },
   {
     name: "Mehmet Kaya",
     role: "Kurucu, E-commerce Pro",
-    content: "Aylar boyunca farklı freelancer'larla uğraştık. The Briefly'de tutarlı kalite ve öngörülebilir fiyatları bulduk. Kesinlikle tavsiye ediyorum.",
+    content: "Aylar boyunca farklı freelancer'larla uğraştık. The Briefly'de tutarlı kalite ve öngörülebilir fiyatları bulduk. Tüm teslimatlar zamanında ve mükemmel. Kesinlikle tavsiye ediyorum.",
     rating: 5,
+    metric: "%100 zamanında teslimat",
   },
   {
     name: "Zeynep Demir",
     role: "CEO, Creative Agency",
-    content: "Custom Squad Builder sayesinde tam ihtiyacımız kadar hizmet alıyoruz. Ne eksik ne fazla. Bütçemizi çok daha verimli kullanıyoruz.",
+    content: "Custom Squad Builder sayesinde tam ihtiyacımız kadar hizmet alıyoruz. Ne eksik ne fazla. İçerik üretimimiz 4 katına çıktı, bütçemizi çok daha verimli kullanıyoruz.",
     rating: 5,
+    metric: "4x içerik artışı",
   },
 ];
 
@@ -73,6 +76,13 @@ export function SocialProof() {
                 <p className="text-base italic text-foreground">
                   "{testimonial.content}"
                 </p>
+
+                {/* Metric Badge */}
+                {"metric" in testimonial && (
+                  <div className="inline-flex px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">
+                    {testimonial.metric}
+                  </div>
+                )}
 
                 {/* Author */}
                 <div className="pt-4 border-t">
