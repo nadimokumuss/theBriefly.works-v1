@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-start": "bash scripts/sync-start.sh",
+    "sync-end": "bash scripts/sync-end.sh",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-separator": "^1.1.8",
