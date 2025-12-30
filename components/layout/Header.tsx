@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/", label: "Ana Sayfa" },
   { href: "/paketler", label: "Paketler" },
   { href: "/nasil-calisir", label: "Nasıl Çalışır" },
-  { href: "/satis-ortagi", label: "Satış Ortağı" },
+  { href: "/satis-ortakligi", label: "Satış Ortağı" },
 ];
 
 export function Header() {

@@ -224,4 +224,9 @@
   .hover-lift:hover {
     transform: translateY(-8px);
   }
+
+  /* Assembly Line Gradient (Legacy support) */
+  .assembly-line-gradient {
+    background: linear-gradient(135deg, #012326 0%, #205459 50%, #346C73 100%);
+  }
 }

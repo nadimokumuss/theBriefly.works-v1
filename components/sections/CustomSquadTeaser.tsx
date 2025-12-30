@@ -8,6 +8,7 @@ import { Section } from "./Section";
 import { fadeInUp, fadeInUpStagger, fadeInUpChild } from "@/lib/animations";
 import Link from "next/link";
 import { Video, Palette, Share2 } from "lucide-react";
+import { formatPrice } from "@/config/pricing";
 
 const exampleSquads = [
   {
@@ -15,14 +16,14 @@ const exampleSquads = [
     description: "Instagram ve TikTok için optimize",
     items: ["10 Reel", "20 Post", "Story Tasarımları"],
     icon: Share2,
-    price: "₺25,000",
+    monthlyPrice: 25000,
   },
   {
     title: "Video Ağırlıklı",
     description: "YouTube ve marka videoları",
     items: ["8 Video (60sn)", "5 Reel", "Thumbnail Tasarım"],
     icon: Video,
-    price: "₺35,000",
+    monthlyPrice: 35000,
     popular: true,
   },
   {
@@ -30,7 +31,7 @@ const exampleSquads = [
     description: "Tüm ihtiyaçlar bir arada",
     items: ["5 Video", "15 Post", "10 Reel", "Strateji"],
     icon: Palette,
-    price: "₺50,000",
+    monthlyPrice: 50000,
   },
 ];
 
@@ -98,7 +99,7 @@ export function CustomSquadTeaser() {
                     ))}
                   </ul>
                   <div className="pt-4 border-t">
-                    <p className="text-2xl font-bold text-accent">{squad.price}<span className="text-sm text-muted-foreground font-normal">/ay</span></p>
+                    <p className="text-2xl font-bold text-accent">{formatPrice(squad.monthlyPrice)}<span className="text-sm text-muted-foreground font-normal">/ay</span></p>
                   </div>
                 </CardContent>
               </Card>

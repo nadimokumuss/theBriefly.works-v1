@@ -11,11 +11,12 @@ import { useState } from "react";
 // Interactive 3D Portfolio Card Component
 interface PortfolioCardProps {
   image: string;
+  alt: string;
   delay: number;
   className?: string;
 }
 
-function PortfolioCard({ image, delay, className = "" }: PortfolioCardProps) {
+function PortfolioCard({ image, alt, delay, className = "" }: PortfolioCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -61,7 +62,7 @@ function PortfolioCard({ image, delay, className = "" }: PortfolioCardProps) {
       >
         <Image
           src={image}
-          alt="Portfolio project"
+          alt={alt}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
@@ -187,6 +188,7 @@ export function Hero() {
               {/* Card 1 - Tall */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80"
+                alt="Soyut geometrik tasarım - marka kimliği projesi"
                 delay={0.1}
                 className="row-span-2"
               />
@@ -194,6 +196,7 @@ export function Hero() {
               {/* Card 2 - Wide */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&q=80"
+                alt="Renkli sosyal medya içerik tasarımı"
                 delay={0.15}
                 className="col-span-2"
               />
@@ -201,6 +204,7 @@ export function Hero() {
               {/* Card 3 - Square */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&q=80"
+                alt="Kreatif ekip toplantısı - strateji çalışması"
                 delay={0.2}
                 className=""
               />
@@ -208,6 +212,7 @@ export function Hero() {
               {/* Card 4 - Tall */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&q=80"
+                alt="Profesyonel video prodüksiyon ekibi"
                 delay={0.25}
                 className="row-span-2"
               />
@@ -215,6 +220,7 @@ export function Hero() {
               {/* Card 5 - Square */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
+                alt="Marka stratejisi sunum çalışması"
                 delay={0.3}
                 className=""
               />
@@ -222,6 +228,7 @@ export function Hero() {
               {/* Card 6 - Square */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&q=80"
+                alt="Kreatif brainstorming oturumu"
                 delay={0.35}
                 className=""
               />
@@ -229,6 +236,7 @@ export function Hero() {
               {/* Card 7 - Wide */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80"
+                alt="Dijital pazarlama analitik dashboard"
                 delay={0.4}
                 className="col-span-2"
               />
@@ -236,6 +244,7 @@ export function Hero() {
               {/* Card 8 - Square */}
               <PortfolioCard
                 image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
+                alt="Yaratıcı ekip işbirliği çalışması"
                 delay={0.45}
                 className=""
               />

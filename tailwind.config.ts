@@ -19,9 +19,6 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-montserrat)", "sans-serif"],
         baumans: ["var(--font-baumans)", "sans-serif"],
-        righteous: ["var(--font-righteous)", "sans-serif"],
-        bebas: ["var(--font-bebas)", "sans-serif"],
-        russo: ["var(--font-russo)", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

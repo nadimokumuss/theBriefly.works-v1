@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Section } from "./Section";
 import { fadeInUpStagger, fadeInUpChild } from "@/lib/animations";
 import { MousePointerClick, MessagesSquare, Rocket } from "lucide-react";
+import Link from "next/link";
 
 const steps = [
   {
@@ -94,12 +95,12 @@ export function HowItWorks() {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="text-center mt-12"
       >
-        <a
+        <Link
           href="/nasil-calisir"
           className="text-accent hover:underline font-medium"
         >
           Detaylı Süreci Görüntüle →
-        </a>
+        </Link>
       </motion.div>
     </Section>
   );

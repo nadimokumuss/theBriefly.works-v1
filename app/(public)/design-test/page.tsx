@@ -39,6 +39,14 @@ export default function DesignTestPage() {
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-7xl mx-auto space-y-12">
 
+        {/* Deprecation Notice */}
+        <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4 mb-8">
+          <p className="text-sm text-destructive font-medium">
+            Bu sayfa eski tasarim sistemini gostermektedir. Guncel tasarim sistemi: Istanbul Bosphorus - Ocean Breeze.
+            Guncel renkler ve stiller icin globals.css ve DESIGN_SYSTEM.md dosyalarina bakiniz.
+          </p>
+        </div>
+
         {/* Header */}
         <motion.div
           variants={fadeInUp}
@@ -48,9 +56,9 @@ export default function DesignTestPage() {
         >
           <h1 className="text-4xl font-bold">Design System Test Lab</h1>
           <p className="text-muted-foreground text-lg">
-            The Briefly - Soft Industrial Design System ✨
+            The Briefly - Eski: Soft Industrial / Yeni: Istanbul Bosphorus
           </p>
-          <Badge className="bg-accent">Finalized!</Badge>
+          <Badge variant="outline">Eski Versiyon</Badge>
         </motion.div>
 
         <Separator />

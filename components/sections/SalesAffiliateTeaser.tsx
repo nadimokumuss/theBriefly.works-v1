@@ -57,10 +57,10 @@ export function SalesAffiliateTeaser() {
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-warm-lg"
             >
-              <Link href="/satis-ortagi">Detayları Gör</Link>
+              <Link href="/satis-ortakligi">Detayları Gör</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/satis-ortagi#basvur">Hemen Başvur</Link>
+              <Link href="/satis-ortakligi#basvur">Hemen Başvur</Link>
             </Button>
           </div>
         </motion.div>

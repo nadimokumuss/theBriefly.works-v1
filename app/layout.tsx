@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Montserrat, Baumans, Righteous, Bebas_Neue, Russo_One } from "next/font/google";
+import { Montserrat, Baumans } from "next/font/google";
 import "./globals.css";
 
 // Ana font - Montserrat (body ve çoğu başlık)
 const montserrat = Montserrat({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-montserrat",
   display: "swap",
 });
 
-// Display Fonts - Test için farklı fontlar
+// Display Font - Baumans (vurgulu başlıklar için)
 const baumans = Baumans({
   subsets: ["latin"],
   variable: "--font-baumans",
@@ -17,30 +17,17 @@ const baumans = Baumans({
   weight: "400",
 });
 
-const righteous = Righteous({
-  subsets: ["latin"],
-  variable: "--font-righteous",
-  display: "swap",
-  weight: "400",
-});
-
-const bebasNeue = Bebas_Neue({
-  subsets: ["latin"],
-  variable: "--font-bebas",
-  display: "swap",
-  weight: "400",
-});
-
-const russoOne = Russo_One({
-  subsets: ["latin"],
-  variable: "--font-russo",
-  display: "swap",
-  weight: "400",
-});
-
 export const metadata: Metadata = {
-  title: "The Briefly - Digital Assembly Line for Creative Services",
-  description: "Managed B2B Creative Services Marketplace. Standardized video, design, and social media services with the speed of a platform.",
+  title: "The Briefly - Ajans Kalitesi, Platform Hızı",
+  description: "Kreatif işlerinizi dijital montaj hattına taşıyın. Video, tasarım ve sosyal medya hizmetleri sabit fiyatla, hızlı teslimatla ve ajans kalitesiyle.",
+  keywords: ["kreatif ajans", "video prodüksiyon", "sosyal medya", "tasarım hizmetleri", "içerik üretimi", "dijital pazarlama"],
+  authors: [{ name: "The Briefly" }],
+  openGraph: {
+    title: "The Briefly - Ajans Kalitesi, Platform Hızı",
+    description: "Kreatif işlerinizi dijital montaj hattına taşıyın. Sabit fiyat, hızlı teslimat, ajans kalitesi.",
+    type: "website",
+    locale: "tr_TR",
+  },
 };
 
 export default function RootLayout({
@@ -50,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body className={`${montserrat.variable} ${baumans.variable} ${righteous.variable} ${bebasNeue.variable} ${russoOne.variable} font-sans`}>
+      <body className={`${montserrat.variable} ${baumans.variable} font-sans`}>
         {children}
       </body>
     </html>
