@@ -74,7 +74,7 @@ export function SocialProof() {
 
                 {/* Content */}
                 <p className="text-base italic text-foreground">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </p>
 
                 {/* Metric Badge */}

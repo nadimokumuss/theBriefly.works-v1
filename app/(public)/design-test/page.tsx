@@ -426,7 +426,7 @@ export default function DesignTestPage() {
                 <CardDescription>Highlighted with accent border</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>This style could be used for the "Pro" package or important CTAs.</p>
+                <p>This style could be used for the &ldquo;Pro&rdquo; package or important CTAs.</p>
               </CardContent>
             </Card>
           </div>

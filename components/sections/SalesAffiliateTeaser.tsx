@@ -47,7 +47,7 @@ export function SalesAffiliateTeaser() {
           </h2>
 
           <p className="text-lg text-muted-foreground">
-            Networküne The Briefly'yi tanıt, her satıştan komisyon kazan.
+            Networküne The Briefly&apos;yi tanıt, her satıştan komisyon kazan.
             Freelance işlerin yanında düzenli gelir akışı oluştur.
           </p>
 

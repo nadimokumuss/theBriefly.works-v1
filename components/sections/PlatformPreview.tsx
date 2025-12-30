@@ -69,7 +69,7 @@ export function PlatformPreview() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-lg text-muted-foreground max-w-2xl mx-auto"
         >
-          Phase 2'de gelecek olan platform özellikleri ile kreatif süreçleriniz
+          Phase 2&apos;de gelecek olan platform özellikleri ile kreatif süreçleriniz
           tamamen dijitalleşecek
         </motion.p>
       </div>
@@ -88,7 +88,7 @@ export function PlatformPreview() {
               <div className="text-center space-y-4">
                 <LayoutDashboard className="w-16 h-16 text-accent mx-auto" />
                 <p className="text-lg font-semibold text-foreground">
-                  Proje Yönetimi Dashboard'u
+                  Proje Yönetimi Dashboard&apos;u
                 </p>
                 <p className="text-sm text-muted-foreground max-w-md">
                   Projelerinizi takip edin, ekibinizle iletişim kurun,

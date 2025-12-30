@@ -55,7 +55,7 @@ export function CompetitiveAdvantage() {
           transition={{ duration: 0.8 }}
           className="text-3xl md:text-4xl font-bold"
         >
-          Geleneksel Ajans ve Freelancer'lara Karşı{" "}
+          Geleneksel Ajans ve Freelancer&apos;lara Karşı{" "}
           <span className="text-accent">Rekabetçi Avantajımız</span>
         </motion.h2>
         <motion.p
