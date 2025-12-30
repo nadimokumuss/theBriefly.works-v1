@@ -10,7 +10,8 @@
       "WebFetch(domain:www.videohusky.com)",
       "WebFetch(domain:www.flocksy.com)",
       "WebFetch(domain:www.marketerhire.com)",
-      "WebFetch(domain:www.penji.co)"
+      "WebFetch(domain:www.penji.co)",
+      "WebFetch(domain:www.superside.com)"
     ]
   }
 }

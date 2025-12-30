@@ -60,7 +60,7 @@ export function PlatformPreview() {
           className="text-3xl md:text-4xl font-bold"
         >
           Sadece Bir Platform Değil,{" "}
-          <span className="text-accent">Akıllı Çalışma Sistemi</span>
+          <span className="gradient-text-white-to-ocean font-baumans">Akıllı Çalışma Sistemi</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

@@ -29,14 +29,14 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-secondary border-t">
+    <footer className="gradient-ocean-depths border-t border-accent/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold">
-                The <span className="text-accent">Briefly</span>
+              <span className="text-2xl font-bold text-white">
+                The <span className="gradient-text-white-to-ocean font-baumans">Briefly</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground mb-6 max-w-sm">

@@ -19,9 +19,9 @@ export function PricingPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold"
+          className="text-3xl md:text-5xl font-bold text-white"
         >
-          Önceden Belirlenmiş <span className="text-accent">Paketler</span>
+          Önceden Belirlenmiş <span className="gradient-text-white-to-ocean font-baumans">Paketler</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -44,8 +44,8 @@ export function PricingPreview() {
         {pricingTiers.map((tier, index) => (
           <motion.div key={tier.id} variants={fadeInUpChild}>
             <Card
-              className={`h-full shadow-warm hover:shadow-warm-lg transition-all duration-300 ${
-                tier.popular ? "border-2 border-accent scale-105" : ""
+              className={`h-full shadow-depth hover:shadow-glow-accent hover-lift transition-all duration-300 bg-card ${
+                tier.popular ? "border-2 border-accent scale-105 gradient-accent-glow" : "border-accent/20"
               }`}
             >
               <CardHeader>

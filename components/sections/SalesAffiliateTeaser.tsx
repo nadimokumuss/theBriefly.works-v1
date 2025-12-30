@@ -43,7 +43,7 @@ export function SalesAffiliateTeaser() {
 
           <h2 className="text-3xl md:text-4xl font-bold">
             Satış Ortağı Ol,{" "}
-            <span className="text-accent">Pasif Gelir Kazan</span>
+            <span className="gradient-text-white-to-ocean font-baumans">Pasif Gelir Kazan</span>
           </h2>
 
           <p className="text-lg text-muted-foreground">

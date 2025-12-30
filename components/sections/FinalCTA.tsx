@@ -2,65 +2,89 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Section } from "./Section";
 import { fadeInUp } from "@/lib/animations";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export function FinalCTA() {
   return (
-    <Section background="grid">
+    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden gradient-ocean-depths">
+      {/* Gradient Mesh Background */}
+      <div className="absolute inset-0 gradient-mesh-bg opacity-60" />
+
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 opacity-20">
+        <Image
+          src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80"
+          alt="Team collaboration"
+          fill
+          className="object-cover mix-blend-overlay"
+        />
+      </div>
+
+      {/* Content */}
       <motion.div
         variants={fadeInUp}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="text-center space-y-8 py-12"
+        className="relative z-10 container mx-auto px-6 max-w-5xl text-center space-y-8 py-20"
       >
         {/* Icon */}
         <div className="flex justify-center">
-          <div className="p-4 bg-accent/10 rounded-full">
-            <Sparkles className="w-12 h-12 text-accent" />
+          <div className="p-4 bg-white/10 backdrop-blur-sm rounded-full">
+            <Sparkles className="w-12 h-12 text-white" />
           </div>
         </div>
 
         {/* Headline */}
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-bold max-w-4xl mx-auto text-white">
             Kreatif İşlerinizi{" "}
-            <span className="text-accent">Dijital Montaj Hattına</span> Taşımaya
-            Hazır mısınız?
+            <span className="gradient-text-white-to-ocean font-baumans">Dijital Montaj Hattına™</span>
+            <br />Taşımaya <span className="gradient-text-white-to-ocean font-baumans">Hazır mısınız?</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ajans kalitesi, freelancer esnekliği, platform hızı. Bugün başlayın,
-            farkı hemen görün.
+          <p className="text-xl text-white/90 max-w-2xl mx-auto font-medium">
+            Ajans kalitesi, freelancer esnekliği, platform hızı.
+            <br />
+            <strong className="gradient-text-white-to-ocean font-baumans">Bugün başlayın</strong>, farkı hemen görün.
           </p>
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
           <Button
             asChild
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-warm-lg group"
+            className="gradient-accent-glow hover:shadow-glow-accent text-white shadow-depth group text-lg px-8 transition-all duration-300"
           >
             <Link href="/paketler" className="flex items-center gap-2">
               Paketleri Keşfet
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/custom-squad">Custom Squad Oluştur</Link>
+          <Button asChild variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 transition-all duration-300">
+            <Link href="/paketler#custom-builder">Custom Squad Oluştur</Link>
           </Button>
         </div>
 
         {/* Trust Badge */}
-        <div className="pt-8">
-          <p className="text-sm text-muted-foreground">
-            ⚡ 5 dakikada hesap aç • 💳 Kredi kartı gerekmez • 🎯 İstediğin zaman iptal et
-          </p>
+        <div className="pt-12 flex flex-wrap justify-center gap-6 text-white/80">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">⚡</span>
+            <span className="text-sm font-medium">5 dakikada başla</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">💳</span>
+            <span className="text-sm font-medium">Kredi kartı gerekmez</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">🎯</span>
+            <span className="text-sm font-medium">İstediğin zaman iptal</span>
+          </div>
         </div>
       </motion.div>
-    </Section>
+    </section>
   );
 }

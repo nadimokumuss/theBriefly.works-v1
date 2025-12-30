@@ -53,10 +53,10 @@ export function CompetitiveAdvantage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold"
+          className="text-3xl md:text-4xl font-bold text-white"
         >
           Geleneksel Ajans ve Freelancer&apos;lara Karşı{" "}
-          <span className="text-accent">Rekabetçi Avantajımız</span>
+          <span className="gradient-text-white-to-ocean font-baumans">Rekabetçi Avantajımız</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

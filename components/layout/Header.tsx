@@ -17,13 +17,13 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-accent/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold">
-              The <span className="text-accent">Briefly</span>
+            <span className="text-2xl font-bold text-white">
+              The <span className="gradient-text-white-to-ocean font-baumans">Briefly</span>
             </span>
           </Link>
 
@@ -42,10 +42,10 @@ export function Header() {
 
           {/* Desktop CTAs */}
           <div className="hidden md:flex md:items-center md:gap-4">
-            <Button asChild variant="ghost">
+            <Button asChild variant="ghost" className="text-white hover:text-accent">
               <Link href="/giris">Giriş Yap</Link>
             </Button>
-            <Button asChild className="bg-accent hover:bg-accent/90">
+            <Button asChild className="gradient-cta text-white shadow-glow-accent">
               <Link href="/kayit">Ücretsiz Başla</Link>
             </Button>
           </div>

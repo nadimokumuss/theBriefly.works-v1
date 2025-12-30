@@ -18,8 +18,8 @@ export function Section({
 }: SectionProps) {
   const bgClasses = {
     default: "bg-background",
-    secondary: "bg-secondary",
-    accent: "bg-accent/5",
+    secondary: "bg-primary",
+    accent: "gradient-ocean-radial",
     grid: "bg-background grid-pattern",
   };
 

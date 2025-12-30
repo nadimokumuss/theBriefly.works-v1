@@ -37,6 +37,14 @@
   - Pro: 24-48 saat
   - Enterprise: 12-24 saat
 
+- [x] Complete design overhaul (2025-12-30):
+  - İstanbul Bosphorus - Ocean Breeze renk paleti uygulandı
+  - Dark ocean-dominant theme (koyu okyanus teması)
+  - Premium gradient system (gradient-ocean-depths, gradient-mesh-bg, gradient-cta, etc.)
+  - Baumans display font tüm vurgulu metinlere uygulandı
+  - White-to-ocean gradient text effect (.gradient-text-white-to-ocean)
+  - Tüm section başlıklarına consistent branding
+
 ### Documentation
 - [x] PRD.md - Kapsamlı ürün gereksinimleri dökümanı
 - [x] CLAUDE.md - AI için teknik talimatlar
@@ -55,10 +63,7 @@
 
 ## 🔄 Devam Edenler
 
-### Ana Sayfa Revizyonları
-- [ ] Kullanıcıdan revizyon listesi bekleniyor
-- [ ] Revizyonlar uygulanacak
-- [ ] Final test & polish
+_Şu an aktif çalışma yok - Ana sayfa tasarım overhaul tamamlandı_
 
 ---
 
@@ -92,10 +97,25 @@
 
 ## 🎨 Son Tasarım Kararları
 
-### Renk Paleti: Soft Industrial - Sage
-- Primary: Warm Slate `hsl(30, 8%, 28%)`
-- Accent: Muted Sage `hsl(150, 22%, 50%)`
-- Background: Warm Off-White `hsl(30, 10%, 96%)`
+### Renk Paleti: İstanbul Bosphorus - Ocean Breeze (Dark Dominant)
+- Background: Deep Ocean `hsl(185, 95%, 8%)` - #012326 (Ana arkaplan)
+- Primary: Dark Turquoise `hsl(185, 47%, 24%)` - #205459
+- Secondary: Mid-Dark Turquoise `hsl(187, 38%, 33%)` - #346C73
+- Accent: Muted Turquoise `hsl(191, 25%, 53%)` - #6A9BA6 (CTA, vurgular)
+- Foreground: Light Gray `hsl(240, 10%, 95%)` - #F0F0F2 (Ana metin)
+- Ocean Light: `hsl(193, 30%, 73%)` - #A3C9D9
+
+### Font System
+- Body: Montserrat (Google Fonts)
+- Display/Accent: Baumans (tüm vurgulu metinler)
+- Gradient Effect: White-to-ocean gradient on all accent text
+
+### Gradient Utilities
+- `.gradient-ocean-depths` - Dark ocean background gradient
+- `.gradient-mesh-bg` - Animated mesh overlay
+- `.gradient-cta` - Animated CTA button gradient
+- `.gradient-accent-glow` - Glowing accent gradient
+- `.gradient-text-white-to-ocean` - White to ocean text gradient
 
 ### Animasyon Stili: Calm & Deliberate
 - Default duration: 800ms
@@ -187,6 +207,6 @@ npm run sync-end      # İş bitince (commit + push)
 
 ---
 
-**Son Güncelleme:** 2025-12-30 14:50
+**Son Güncelleme:** 2025-12-30 16:30
 **Güncelleyen:** Nadim (Ofis - Masaüstü)
-**Sonraki Adım:** Ana sayfa revizyonları
+**Sonraki Adım:** Statik sayfa geliştirmeye başlama (/paketler, /nasil-calisir, vs.)

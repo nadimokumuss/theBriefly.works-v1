@@ -38,7 +38,7 @@ export function HowItWorks() {
           transition={{ duration: 0.8 }}
           className="text-3xl md:text-4xl font-bold"
         >
-          Nasıl <span className="text-accent">Çalışır</span>?
+          Nasıl <span className="gradient-text-white-to-ocean font-baumans">Çalışır</span>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

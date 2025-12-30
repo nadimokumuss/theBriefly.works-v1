@@ -46,7 +46,7 @@ export function CustomSquadTeaser() {
           className="text-3xl md:text-4xl font-bold"
         >
           İhtiyacınıza Göre{" "}
-          <span className="text-accent">Ekibinizi Oluşturun</span>
+          <span className="gradient-text-white-to-ocean font-baumans">Ekibinizi Oluşturun</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

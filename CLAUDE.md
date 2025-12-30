@@ -209,10 +209,19 @@ All public pages require:
 - Fast page loads (<3s)
 
 #### 5. Design System Consistency
-Follow "Soft Industrial (Sage)" design system:
-- **Colors:** Warm Slate (#4A4644) + Muted Sage (#6B9B7A)
+Follow "Istanbul Boğazı - Ocean Breeze" design system:
+- **Colors:**
+  - Background: #F0F0F2 (Ferah Açık Gri)
+  - Primary: #012326 (Koyu Deniz Mavisi - Ana Metin)
+  - Accent: #6A9BA6 (Orta Turkuaz - CTA, Vurgular)
+  - Secondary: #A3C9D9 (Açık Mavi - Section Backgrounds)
+  - Muted: #205459 (Koyu Turkuaz - İkincil Metin)
+  - Border: #346C73 (Orta Koyu Turkuaz)
+- **Fonts:**
+  - Ana Font: Montserrat (body ve başlıklar)
+  - Display Font: Playfair Display (italic, özel başlıklar için `font-display`)
 - **Animations:** Calm & Deliberate (800ms ease-out cubic-bezier)
-- **Shadows:** Warm shadows (use `.shadow-warm` utility)
+- **Shadows:** Ocean shadows (use `.shadow-warm` utility)
 - **Grid Pattern:** Subtle grid backgrounds (use `.grid-pattern` utility)
 
 #### 6. Modular Development

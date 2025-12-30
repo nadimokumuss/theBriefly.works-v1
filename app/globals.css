@@ -4,29 +4,32 @@
 
 @layer base {
   :root {
-    /* ✨ Soft Industrial (Sage) Color Palette */
-    --background: 30 10% 96%;      /* Warm Off-White */
-    --foreground: 30 8% 28%;       /* Warm Slate */
+    /* 🌊 İstanbul Boğazı - Deep Ocean Palette (Dark Dominant) */
+    --background: 185 95% 8%;       /* #012326 - Koyu Deniz (Ana Arkaplan) */
+    --foreground: 240 10% 95%;      /* #F0F0F2 - Açık Gri (Ana Metin) */
 
-    /* Brand Colors - Artisanal Workshop meets Modern Platform */
-    --primary: 30 8% 28%;          /* Warm Slate (sıcak koyu gri-kahve) */
-    --primary-foreground: 30 10% 96%;
+    /* Brand Colors - Luxury meets Bosphorus */
+    --primary: 185 47% 24%;         /* #205459 - Koyu Turkuaz */
+    --primary-foreground: 240 10% 95%;
 
-    --secondary: 30 12% 92%;       /* Light Warm Gray */
-    --secondary-foreground: 30 8% 28%;
+    --secondary: 187 38% 33%;       /* #346C73 - Orta Koyu Turkuaz (Section BG) */
+    --secondary-foreground: 240 10% 95%;
 
-    --accent: 150 22% 50%;         /* Muted Sage (pastel yeşil-gri) */
-    --accent-foreground: 30 10% 96%;
+    --accent: 191 25% 53%;          /* #6A9BA6 - Orta Turkuaz (CTA, Vurgular) */
+    --accent-foreground: 240 10% 95%;
 
-    --muted: 30 12% 92%;
-    --muted-foreground: 30 6% 65%; /* Mid-tone Warm Gray */
+    --muted: 187 38% 33%;           /* #346C73 - Orta koyu */
+    --muted-foreground: 198 40% 75%; /* #A3C9D9 - Açık mavi (Pasif Metin) */
 
-    --destructive: 0 65% 55%;      /* Soft Red (not harsh) */
-    --destructive-foreground: 30 10% 96%;
+    --destructive: 0 65% 55%;       /* Soft Red */
+    --destructive-foreground: 240 10% 95%;
 
-    --border: 30 12% 88%;          /* Very Subtle Border */
-    --input: 30 12% 88%;
-    --ring: 150 22% 50%;           /* Sage Accent for Focus */
+    --border: 191 25% 53%;          /* #6A9BA6 - Accent (Border) */
+    --input: 185 47% 24%;           /* #205459 - Koyu turkuaz */
+    --ring: 191 25% 53%;            /* Accent color for focus */
+
+    --card: 185 47% 24%;            /* #205459 - Card backgrounds */
+    --card-foreground: 240 10% 95%;
 
     --radius: 0.5rem;
 
@@ -38,28 +41,31 @@
   }
 
   .dark {
-    /* Dark Mode: Warm Industrial */
-    --background: 30 8% 12%;       /* Dark Warm Slate */
-    --foreground: 30 10% 96%;
+    /* Light Mode Toggle (if ever used) */
+    --background: 240 10% 95%;     /* #F0F0F2 - Açık gri */
+    --foreground: 185 95% 8%;      /* #012326 - Koyu deniz */
 
-    --primary: 30 10% 96%;         /* Light text in dark mode */
-    --primary-foreground: 30 8% 12%;
+    --primary: 185 95% 8%;         /* Koyu deniz */
+    --primary-foreground: 240 10% 95%;
 
-    --secondary: 30 10% 18%;       /* Dark Warm Gray */
-    --secondary-foreground: 30 10% 96%;
+    --secondary: 198 40% 75%;      /* #A3C9D9 - Açık mavi */
+    --secondary-foreground: 185 95% 8%;
 
-    --accent: 150 25% 55%;         /* Slightly brighter Sage for dark mode */
-    --accent-foreground: 30 8% 12%;
+    --accent: 191 25% 53%;         /* #6A9BA6 */
+    --accent-foreground: 240 10% 95%;
 
-    --muted: 30 10% 18%;
-    --muted-foreground: 30 8% 65%;
+    --muted: 198 40% 75%;
+    --muted-foreground: 185 47% 24%;
 
     --destructive: 0 65% 50%;
-    --destructive-foreground: 30 10% 96%;
+    --destructive-foreground: 240 10% 95%;
 
-    --border: 30 10% 22%;
-    --input: 30 10% 22%;
-    --ring: 150 25% 55%;
+    --border: 187 38% 33%;         /* #346C73 */
+    --input: 187 38% 33%;
+    --ring: 191 25% 53%;
+
+    --card: 240 10% 95%;
+    --card-foreground: 185 95% 8%;
   }
 }
 
@@ -73,25 +79,149 @@
   }
 }
 
-/* Soft Industrial Grid Pattern - Very Subtle */
+/* 🎨 Premium Gradient & Effects System */
 @layer utilities {
+  /* Modern Gradient Backgrounds */
+  .gradient-ocean-depths {
+    background: linear-gradient(135deg, #012326 0%, #205459 50%, #346C73 100%);
+  }
+
+  .gradient-ocean-radial {
+    background: radial-gradient(ellipse at top, #205459 0%, #012326 100%);
+  }
+
+  .gradient-accent-glow {
+    background: linear-gradient(135deg, #6A9BA6 0%, #A3C9D9 100%);
+  }
+
+  .gradient-mesh-bg {
+    background:
+      radial-gradient(at 0% 0%, rgba(32, 84, 89, 0.3) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(106, 155, 166, 0.2) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(52, 108, 115, 0.3) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(1, 35, 38, 0.3) 0px, transparent 50%);
+  }
+
+  .gradient-overlay-dark {
+    background: linear-gradient(180deg, rgba(1, 35, 38, 0) 0%, rgba(1, 35, 38, 0.8) 100%);
+  }
+
+  .gradient-text-ocean {
+    background: linear-gradient(135deg, #6A9BA6 0%, #A3C9D9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-white-to-ocean {
+    background: linear-gradient(135deg, #FFFFFF 0%, #6A9BA6 50%, #A3C9D9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated Gradient for CTAs */
+  .gradient-cta {
+    background: linear-gradient(135deg, #6A9BA6 0%, #205459 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Grid Pattern - Subtle */
   .grid-pattern {
     background-image:
-      linear-gradient(hsla(30, 8%, 28%, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsla(30, 8%, 28%, 0.03) 1px, transparent 1px);
+      linear-gradient(hsla(185, 95%, 8%, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(185, 95%, 8%, 0.03) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
-  /* Warm shadow utility for cards */
+  /* Premium Layered Shadows */
   .shadow-warm {
     box-shadow:
-      0 1px 3px 0 hsla(30, 8%, 28%, 0.08),
-      0 1px 2px -1px hsla(30, 8%, 28%, 0.06);
+      0 1px 3px 0 hsla(185, 95%, 8%, 0.12),
+      0 1px 2px -1px hsla(185, 95%, 8%, 0.08);
   }
 
   .shadow-warm-lg {
     box-shadow:
-      0 10px 15px -3px hsla(30, 8%, 28%, 0.08),
-      0 4px 6px -4px hsla(30, 8%, 28%, 0.06);
+      0 10px 15px -3px hsla(185, 95%, 8%, 0.15),
+      0 4px 6px -4px hsla(185, 95%, 8%, 0.1);
+  }
+
+  .shadow-warm-xl {
+    box-shadow:
+      0 20px 25px -5px hsla(185, 95%, 8%, 0.2),
+      0 10px 10px -5px hsla(185, 95%, 8%, 0.08);
+  }
+
+  .shadow-glow-accent {
+    box-shadow:
+      0 0 20px rgba(106, 155, 166, 0.3),
+      0 0 40px rgba(106, 155, 166, 0.1);
+  }
+
+  .shadow-depth {
+    box-shadow:
+      0 2px 4px rgba(1, 35, 38, 0.1),
+      0 8px 16px rgba(1, 35, 38, 0.1),
+      0 16px 32px rgba(1, 35, 38, 0.1),
+      0 32px 64px rgba(1, 35, 38, 0.1);
+  }
+
+  /* Bold Typography - Agency Style */
+  .text-display {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+    line-height: 1.1;
+  }
+
+  .text-headline {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    line-height: 1.2;
+  }
+
+  /* Dark Section Backgrounds - Istanbul Boğazı */
+  .section-dark {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .section-accent-dark {
+    background: linear-gradient(135deg, hsl(191, 25%, 43%) 0%, hsl(191, 25%, 53%) 100%);
+    @apply text-white;
+  }
+
+  /* Image Overlays - Ocean Tones */
+  .overlay-gradient {
+    @apply absolute inset-0 bg-gradient-to-br from-primary/60 to-accent/40;
+  }
+
+  .overlay-dark {
+    @apply absolute inset-0 bg-primary/60;
+  }
+
+  /* Parallax Background */
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Stats Counter Style */
+  .stat-number {
+    @apply text-6xl md:text-7xl font-bold bg-gradient-to-br from-accent to-accent/60 bg-clip-text text-transparent;
+  }
+
+  /* Hover Lift Effect */
+  .hover-lift {
+    transition: transform var(--duration-hover) var(--transition-calm);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
   }
 }
