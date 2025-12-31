@@ -36,7 +36,7 @@ const testimonials = [
 
 export function SocialProof() {
   return (
-    <Section background="secondary">
+    <Section background="primary" transitionTo="light">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

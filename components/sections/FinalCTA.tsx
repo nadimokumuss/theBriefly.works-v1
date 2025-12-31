@@ -70,18 +70,18 @@ export function FinalCTA() {
         </div>
 
         {/* Trust Badge */}
-        <div className="pt-12 flex flex-wrap justify-center gap-6 text-white/80">
+        <div className="pt-12 flex flex-row justify-center gap-6 text-white/80">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">⚡</span>
-            <span className="text-sm font-medium">5 dakikada başla</span>
+            <span className="text-2xl">📊</span>
+            <span className="text-sm font-medium">Gerçek Zamanlı Takip</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">💳</span>
-            <span className="text-sm font-medium">Kredi kartı gerekmez</span>
+            <span className="text-2xl">🔄</span>
+            <span className="text-sm font-medium">Anlık Revize Sistemi</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🎯</span>
-            <span className="text-sm font-medium">İstediğin zaman iptal</span>
+            <span className="text-2xl">🛡️</span>
+            <span className="text-sm font-medium">Önce İş, Sonra Ödeme</span>
           </div>
         </div>
       </motion.div>

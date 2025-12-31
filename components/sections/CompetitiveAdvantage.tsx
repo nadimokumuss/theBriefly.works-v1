@@ -22,10 +22,10 @@ const comparisons = [
     icon: TrendingDown,
   },
   {
-    category: "Teslimat Hızı",
-    traditional: "1-2 hafta (ajans), belirsiz (freelancer)",
-    briefly: "24-48 saat garantili teslimat",
-    savings: "10 kat daha hızlı",
+    category: "Süreç Takibi",
+    traditional: "Belirsiz, iletişim kopuklukları",
+    briefly: "Gerçek zamanlı hizmet takibi",
+    savings: "Tam şeffaflık",
     icon: Clock,
   },
   {
@@ -36,17 +36,17 @@ const comparisons = [
     icon: Shield,
   },
   {
-    category: "Esneklik",
-    traditional: "Uzun sözleşmeler, iptal zor",
-    briefly: "Aylık abonelik, istediğiniz zaman iptal",
-    savings: "Tam kontrol",
+    category: "Ödeme Güvencesi",
+    traditional: "Peşin ödeme, risk yüksek",
+    briefly: "Önce iş, sonra ödeme onayı",
+    savings: "Sıfır risk",
     icon: Zap,
   },
 ];
 
 export function CompetitiveAdvantage() {
   return (
-    <Section background="secondary">
+    <Section background="primary" transitionTo="light">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

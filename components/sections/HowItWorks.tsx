@@ -30,23 +30,23 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <Section background="default">
+    <Section background="light" transitionTo="primary">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold"
+          className="text-3xl md:text-4xl font-bold text-[#012326]"
         >
-          Nasıl <span className="gradient-text-white-to-ocean font-baumans">Çalışır</span>?
+          Nasıl <span className="text-accent font-baumans">Çalışır</span>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-lg text-muted-foreground max-w-2xl mx-auto"
+          className="text-lg text-[#205459] max-w-2xl mx-auto"
         >
           3 adımda kreatif işlerinizi dijital montaj hattına taşıyın
         </motion.p>
@@ -60,7 +60,7 @@ export function HowItWorks() {
         className="grid md:grid-cols-3 gap-8 relative"
       >
         {/* Connection Line */}
-        <div className="hidden md:block absolute top-20 left-1/4 right-1/4 h-0.5 bg-border z-0" />
+        <div className="hidden md:block absolute top-20 left-1/4 right-1/4 h-0.5 bg-[#6A9BA6] z-0" />
 
         {steps.map((step, index) => {
           const Icon = step.icon;

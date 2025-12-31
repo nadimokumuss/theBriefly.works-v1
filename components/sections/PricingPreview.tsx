@@ -12,7 +12,7 @@ import { Check } from "lucide-react";
 
 export function PricingPreview() {
   return (
-    <Section background="secondary">
+    <Section background="teal" transitionTo="light">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ export function PricingPreview() {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="text-center mt-12"
       >
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-white/80">
           Tüm paketlerde KDV dahildir. Yıllık ödeme ile %15 indirim.
         </p>
       </motion.div>

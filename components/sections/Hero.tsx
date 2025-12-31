@@ -1,84 +1,332 @@
 "use client";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { fadeInUp } from "@/lib/animations";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
-// Interactive 3D Portfolio Card Component
-interface PortfolioCardProps {
-  image: string;
-  alt: string;
-  delay: number;
-  className?: string;
+// Industry photos for the scrolling gallery
+const industryPhotos = {
+  column1: [
+    { src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&q=80", alt: "Kuaför salonu" },
+    { src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=80", alt: "Sağlık kliniği" },
+    { src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80", alt: "Restoran iç mekan" },
+    { src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80", alt: "Gece kulübü" },
+    { src: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80", alt: "Güzellik salonu" },
+    { src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&q=80", alt: "Kafe" },
+    { src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80", alt: "Yoga stüdyosu" },
+    { src: "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=400&q=80", alt: "Pizza restoranı" },
+  ],
+  column2: [
+    { src: "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=400&q=80", alt: "Berber dükkanı" },
+    { src: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=400&q=80", alt: "Restoran mutfak" },
+    { src: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=80", alt: "Spa merkezi" },
+    { src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80", alt: "Diş kliniği" },
+    { src: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&q=80", alt: "Bar" },
+    { src: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=400&q=80", alt: "Kuaför" },
+    { src: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&q=80", alt: "Fine dining" },
+    { src: "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=400&q=80", alt: "Güzellik merkezi" },
+  ],
+  column3: [
+    { src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80", alt: "Fitness salonu" },
+    { src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", alt: "Kahve dükkanı" },
+    { src: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&q=80", alt: "Veteriner kliniği" },
+    { src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80", alt: "Otel lobi" },
+    { src: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=400&q=80", alt: "Nail salon" },
+    { src: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400&q=80", alt: "Pastane" },
+    { src: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=400&q=80", alt: "Eczane" },
+    { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&q=80", alt: "Otel odası" },
+  ],
+};
+
+// Scrolling Column Component
+interface ScrollingColumnProps {
+  photos: { src: string; alt: string }[];
+  baseSpeed: number;
+  initialDirection: 1 | -1;
 }
 
-function PortfolioCard({ image, alt, delay, className = "" }: PortfolioCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+function ScrollingColumn({ photos, baseSpeed, initialDirection }: ScrollingColumnProps) {
+  const photoHeight = 140; // Height of each photo + gap
+  const totalHeight = photos.length * photoHeight;
 
-  const rotateX = useTransform(y, [-100, 100], [10, -10]);
-  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
+  // Start from middle of the duplicated list to have photos above and below
+  const y = useMotionValue(-totalHeight * 2);
+  const columnRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const velocityRef = useRef(baseSpeed * initialDirection);
+  const directionRef = useRef(initialDirection);
+  const lastDragYRef = useRef(0);
+  const lastDragTimeRef = useRef(0);
+  const animationRef = useRef<number>();
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set(event.clientX - centerX);
-    y.set(event.clientY - centerY);
+  // Duplicate photos many times for seamless infinite loop (10x for safety)
+  const duplicatedPhotos = [...photos, ...photos, ...photos, ...photos, ...photos, ...photos, ...photos, ...photos, ...photos, ...photos];
+
+  // Auto-scroll animation with momentum - using refs to avoid re-renders
+  useEffect(() => {
+    let lastTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      const deltaTime = (currentTime - lastTime) / 16;
+      lastTime = currentTime;
+
+      if (!isDraggingRef.current) {
+        // Apply friction
+        const friction = 0.995;
+        velocityRef.current *= friction;
+
+        // Return to base speed when slowed down
+        const targetSpeed = baseSpeed * directionRef.current;
+        if (Math.abs(velocityRef.current) < Math.abs(targetSpeed) * 1.5) {
+          velocityRef.current += (targetSpeed - velocityRef.current) * 0.02;
+        }
+
+        // Update position
+        let newY = y.get() + velocityRef.current * deltaTime * 0.5;
+
+        // Loop seamlessly - keep within bounds of duplicated photos
+        const maxOffset = totalHeight * 4;
+        if (newY > -totalHeight) {
+          newY -= totalHeight;
+        } else if (newY < -maxOffset) {
+          newY += totalHeight;
+        }
+
+        y.set(newY);
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [baseSpeed, totalHeight, y]);
+
+  // Randomly change direction occasionally
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isDraggingRef.current && Math.abs(velocityRef.current) < baseSpeed * 3 && Math.random() > 0.7) {
+        directionRef.current = (directionRef.current * -1) as 1 | -1;
+      }
+    }, 5000 + Math.random() * 5000);
+
+    return () => clearInterval(interval);
+  }, [baseSpeed]);
+
+  // Mouse/Touch handlers
+  const handlePointerDown = (e: React.PointerEvent) => {
+    isDraggingRef.current = true;
+    lastDragYRef.current = e.clientY;
+    lastDragTimeRef.current = Date.now();
+    velocityRef.current = 0;
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0);
-    y.set(0);
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (isDraggingRef.current) {
+      const currentTime = Date.now();
+      const deltaTime = currentTime - lastDragTimeRef.current;
+      const deltaY = e.clientY - lastDragYRef.current;
+
+      // Calculate velocity for momentum
+      if (deltaTime > 0 && deltaTime < 100) {
+        velocityRef.current = (deltaY / deltaTime) * 32;
+      }
+
+      // Update position directly
+      y.set(y.get() + deltaY);
+
+      // Update direction based on drag
+      if (Math.abs(deltaY) > 2) {
+        directionRef.current = deltaY > 0 ? 1 : -1;
+      }
+
+      lastDragYRef.current = e.clientY;
+      lastDragTimeRef.current = currentTime;
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    isDraggingRef.current = false;
+    (e.target as HTMLElement).releasePointerCapture(e.pointerId);
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, duration: 0.6 }}
-      className={`relative overflow-hidden rounded-xl group cursor-pointer ${className}`}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        perspective: 1000,
-      }}
+    <div
+      ref={columnRef}
+      className="relative h-full overflow-hidden cursor-grab active:cursor-grabbing select-none"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+      style={{ touchAction: 'none' }}
     >
       <motion.div
-        className="relative w-full h-full"
-        style={{
-          rotateX: isHovered ? rotateX : 0,
-          rotateY: isHovered ? rotateY : 0,
-          transformStyle: "preserve-3d",
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className="flex flex-col gap-3"
+        style={{ y }}
       >
-        <Image
-          src={image}
-          alt={alt}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        {/* Gradient overlay on hover */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        />
-        {/* Shine effect */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            transform: isHovered ? "translateZ(20px)" : "translateZ(0px)",
-          }}
-        />
+        {duplicatedPhotos.map((photo, index) => (
+          <div
+            key={`${photo.alt}-${index}`}
+            className="relative w-full h-32 rounded-xl overflow-hidden shrink-0"
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              className="object-cover"
+              draggable={false}
+            />
+          </div>
+        ))}
       </motion.div>
-    </motion.div>
+    </div>
+  );
+}
+
+// Fighting Benefits Component - Boxes compete for first place
+const benefitsData = [
+  { id: 1, text: "Gerçek Zamanlı Hizmet Takibi", emoji: "📊" },
+  { id: 2, text: "Anlık Revize Sistemi", emoji: "🔄" },
+  { id: 3, text: "Önce İş, Sonra Ödeme", emoji: "🛡️" },
+];
+
+function FightingBenefits() {
+  const [benefits, setBenefits] = useState(benefitsData);
+  const [attacking, setAttacking] = useState<number | null>(null);
+  const [hit, setHit] = useState<number | null>(null);
+  const [winner, setWinner] = useState<number | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Rastgele bir kutu seçip "saldırı" başlat (1 veya 2. index, yani 2. veya 3. sıradaki)
+      const attackerIndex = Math.floor(Math.random() * 2) + 1;
+      const attacker = benefits[attackerIndex];
+      const targetIndex = attackerIndex - 1; // Bir üstündeki kutu
+      const target = benefits[targetIndex];
+
+      // 1. Aşama: Saldırgan yukarı doğru hareket ediyor
+      setAttacking(attacker.id);
+
+      // 2. Aşama: Vuruş (300ms sonra)
+      setTimeout(() => {
+        setHit(target.id);
+      }, 300);
+
+      // 3. Aşama: Sonuç (800ms sonra)
+      setTimeout(() => {
+        // %50 şansla kazanır ve birinci sıraya geçer
+        if (Math.random() > 0.5) {
+          setWinner(attacker.id);
+          setBenefits(prev => {
+            const newBenefits = [...prev];
+            const attackerIdx = newBenefits.findIndex(b => b.id === attacker.id);
+            const [removed] = newBenefits.splice(attackerIdx, 1);
+            newBenefits.unshift(removed);
+            return newBenefits;
+          });
+
+          setTimeout(() => {
+            setWinner(null);
+          }, 600);
+        }
+
+        setAttacking(null);
+        setHit(null);
+      }, 800);
+
+    }, 3500); // Her 3.5 saniyede bir kavga
+
+    return () => clearInterval(interval);
+  }, [benefits]);
+
+  return (
+    <div className="flex flex-col items-start gap-3 text-sm relative">
+      <AnimatePresence mode="popLayout">
+        {benefits.map((benefit, index) => (
+          <motion.div
+            key={benefit.id}
+            layout
+            initial={{ opacity: 0, x: -20 }}
+            animate={{
+              opacity: 1,
+              // Vurulan kutu: hafifçe sağa kayar
+              x: hit === benefit.id ? [0, 8, -2, 0] : 0,
+              // Saldıran: hafifçe yukarı dokunur
+              y: attacking === benefit.id
+                ? [0, 2, -8, 0]
+                : hit === benefit.id
+                  ? [0, -4, 0]
+                  : 0,
+              scale: attacking === benefit.id
+                ? [1, 1.03, 1]
+                : hit === benefit.id
+                  ? [1, 0.97, 1]
+                  : winner === benefit.id
+                    ? 1.03
+                    : 1,
+              rotate: hit === benefit.id
+                ? [0, 2, -1, 0]
+                : attacking === benefit.id
+                  ? [0, -1, 0]
+                  : 0,
+            }}
+            transition={{
+              layout: { type: "spring", stiffness: 400, damping: 25 },
+              x: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+              y: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+              scale: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+              rotate: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full w-fit cursor-default transition-colors duration-300 ${
+              index === 0
+                ? "bg-accent/30 border border-accent/50"
+                : "bg-accent/10"
+            } ${
+              attacking === benefit.id ? "shadow-xl shadow-accent/50 z-10" : ""
+            } ${
+              hit === benefit.id ? "shadow-lg shadow-red-500/40" : ""
+            } ${
+              winner === benefit.id ? "ring-2 ring-accent ring-offset-2 ring-offset-background" : ""
+            }`}
+          >
+            <motion.span
+              className="text-base"
+              animate={{
+                rotate: attacking === benefit.id
+                  ? [0, -5, 3, 0]
+                  : hit === benefit.id
+                    ? [0, 5, -2, 0]
+                    : 0,
+                scale: attacking === benefit.id ? [1, 1.1, 1] : hit === benefit.id ? [1, 0.95, 1] : 1,
+              }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              {benefit.emoji}
+            </motion.span>
+            <span className="font-semibold">{benefit.text}</span>
+            {index === 0 && (
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                className="ml-1 text-xs bg-accent text-white px-2 py-0.5 rounded-full"
+              >
+                #1
+              </motion.span>
+            )}
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -119,21 +367,8 @@ export function Hero() {
               Kreatif işlerinizi <span className="text-accent font-bold">sabit fiyatla</span>, hızlı teslimatla ve ajans kalitesiyle yönetin.
             </p>
 
-            {/* Key Benefits - NEW */}
-            <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
-                <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                <span className="font-semibold">24-48 saat teslimat</span>
-              </div>
-              <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
-                <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                <span className="font-semibold">Sınırsız revizyon</span>
-              </div>
-              <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
-                <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                <span className="font-semibold">İstediğiniz zaman iptal</span>
-              </div>
-            </div>
+            {/* Key Benefits - Fighting for First Place */}
+            <FightingBenefits />
 
             {/* CTA Buttons */}
             <motion.div
@@ -159,7 +394,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="grid grid-cols-3 gap-6 pt-8"
+              className="grid grid-cols-3 gap-6 pt-8 pb-16"
             >
               <div>
                 <p className="text-3xl font-bold text-accent">500+</p>
@@ -176,79 +411,24 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Interactive 3D Portfolio Cards */}
+          {/* Right Column - Industry Scrolling Gallery */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
             className="relative hidden lg:block"
+            style={{ height: "calc(90vh + 8rem)", marginTop: "-4rem", marginBottom: "-4rem" }}
           >
-            {/* Masonry Grid of Interactive Cards */}
-            <div className="grid grid-cols-3 gap-4 auto-rows-[120px]">
-              {/* Card 1 - Tall */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80"
-                alt="Soyut geometrik tasarım - marka kimliği projesi"
-                delay={0.1}
-                className="row-span-2"
-              />
-
-              {/* Card 2 - Wide */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&q=80"
-                alt="Renkli sosyal medya içerik tasarımı"
-                delay={0.15}
-                className="col-span-2"
-              />
-
-              {/* Card 3 - Square */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&q=80"
-                alt="Kreatif ekip toplantısı - strateji çalışması"
-                delay={0.2}
-                className=""
-              />
-
-              {/* Card 4 - Tall */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&q=80"
-                alt="Profesyonel video prodüksiyon ekibi"
-                delay={0.25}
-                className="row-span-2"
-              />
-
-              {/* Card 5 - Square */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
-                alt="Marka stratejisi sunum çalışması"
-                delay={0.3}
-                className=""
-              />
-
-              {/* Card 6 - Square */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&q=80"
-                alt="Kreatif brainstorming oturumu"
-                delay={0.35}
-                className=""
-              />
-
-              {/* Card 7 - Wide */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80"
-                alt="Dijital pazarlama analitik dashboard"
-                delay={0.4}
-                className="col-span-2"
-              />
-
-              {/* Card 8 - Square */}
-              <PortfolioCard
-                image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
-                alt="Yaratıcı ekip işbirliği çalışması"
-                delay={0.45}
-                className=""
-              />
+            {/* Gallery Container - extends beyond section */}
+            <div className="absolute inset-0 grid grid-cols-3 gap-3">
+              <ScrollingColumn photos={industryPhotos.column1} baseSpeed={0.8} initialDirection={-1} />
+              <ScrollingColumn photos={industryPhotos.column2} baseSpeed={0.5} initialDirection={1} />
+              <ScrollingColumn photos={industryPhotos.column3} baseSpeed={1.2} initialDirection={-1} />
             </div>
+            {/* Top gradient fade */}
+            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#012326] via-[#012326]/70 to-transparent z-20 pointer-events-none" />
+            {/* Bottom gradient fade - transitions to next section */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#F0F0F2] via-[#F0F0F2]/50 to-transparent z-20 pointer-events-none" />
           </motion.div>
         </div>
       </div>

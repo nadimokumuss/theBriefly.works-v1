@@ -33,23 +33,23 @@ const problems = [
 
 export function ProblemSolution() {
   return (
-    <Section background="secondary">
+    <Section background="light" transitionTo="primary">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-white"
+          className="text-3xl md:text-4xl font-bold text-[#012326]"
         >
-          Neden <span className="gradient-text-white-to-ocean font-baumans">The Briefly</span>?
+          Neden <span className="text-accent font-baumans">The Briefly</span>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-lg text-muted-foreground max-w-2xl mx-auto"
+          className="text-lg text-[#205459] max-w-2xl mx-auto"
         >
           Geleneksel ajans ve freelancer sorunlarına modern çözümler
         </motion.p>

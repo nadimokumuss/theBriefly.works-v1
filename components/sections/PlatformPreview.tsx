@@ -49,7 +49,7 @@ const upcomingFeatures = [
 
 export function PlatformPreview() {
   return (
-    <Section background="accent">
+    <Section background="light" transitionTo="primary">
       <div className="text-center space-y-4 mb-16">
         <Badge className="bg-accent mb-4">Yakında</Badge>
         <motion.h2
@@ -57,17 +57,17 @@ export function PlatformPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold"
+          className="text-3xl md:text-4xl font-bold text-[#012326]"
         >
           Sadece Bir Platform Değil,{" "}
-          <span className="gradient-text-white-to-ocean font-baumans">Akıllı Çalışma Sistemi</span>
+          <span className="text-accent font-baumans">Akıllı Çalışma Sistemi</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-lg text-muted-foreground max-w-2xl mx-auto"
+          className="text-lg text-[#205459] max-w-2xl mx-auto"
         >
           Phase 2&apos;de gelecek olan platform özellikleri ile kreatif süreçleriniz
           tamamen dijitalleşecek
@@ -138,10 +138,10 @@ export function PlatformPreview() {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="mt-12 text-center"
       >
-        <p className="text-muted-foreground">
-          <strong className="text-foreground">Phase 1:</strong> Şu an sabit paketler ve manuel süreçlerle başlıyoruz
+        <p className="text-[#346C73]">
+          <strong className="text-[#012326]">Phase 1:</strong> Şu an sabit paketler ve manuel süreçlerle başlıyoruz
           <br />
-          <strong className="text-foreground">Phase 2:</strong> Platform özellikleri ile tamamen otomatik hale geliyoruz
+          <strong className="text-[#012326]">Phase 2:</strong> Platform özellikleri ile tamamen otomatik hale geliyoruz
         </p>
       </motion.div>
     </Section>

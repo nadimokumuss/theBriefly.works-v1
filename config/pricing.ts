@@ -57,10 +57,10 @@ export const pricingTiers: PricingTier[] = [
     features: [
       "5 Reel/Video (60 saniyeye kadar)",
       "15 Sosyal Medya Görseli",
-      "24-48 saat express teslimat",
-      "Sınırsız revizyon",
+      "Gerçek zamanlı hizmet takibi",
+      "Genişletilmiş revize hakkı",
       "İçerik stratejisi danışmanlığı",
-      "Öncelikli destek (24 saat yanıt)",
+      "Öncelikli destek",
     ],
     services: {
       video: 5,

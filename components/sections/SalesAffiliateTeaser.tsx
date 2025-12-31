@@ -29,7 +29,7 @@ const benefits = [
 
 export function SalesAffiliateTeaser() {
   return (
-    <Section background="default">
+    <Section background="oceanDeep" transitionTo="dark">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Column - Text Content */}
         <motion.div
@@ -41,7 +41,7 @@ export function SalesAffiliateTeaser() {
         >
           <Badge className="bg-accent w-fit">Sales Affiliate Program</Badge>
 
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Satış Ortağı Ol,{" "}
             <span className="gradient-text-white-to-ocean font-baumans">Pasif Gelir Kazan</span>
           </h2>

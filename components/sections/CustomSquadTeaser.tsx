@@ -37,24 +37,24 @@ const exampleSquads = [
 
 export function CustomSquadTeaser() {
   return (
-    <Section background="grid">
+    <Section background="light" transitionTo="teal">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold"
+          className="text-3xl md:text-4xl font-bold text-[#012326]"
         >
           İhtiyacınıza Göre{" "}
-          <span className="gradient-text-white-to-ocean font-baumans">Ekibinizi Oluşturun</span>
+          <span className="text-accent font-baumans">Ekibinizi Oluşturun</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-lg text-muted-foreground max-w-2xl mx-auto"
+          className="text-lg text-[#205459] max-w-2xl mx-auto"
         >
           Hazır paketler size dar mı geliyor? Custom Squad Builder ile tam ihtiyacınız kadar hizmet alın.
         </motion.p>

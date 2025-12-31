@@ -1,8 +1,32 @@
 # Claude Code Project Context
 ## The Briefly - Managed B2B Creative Services Marketplace
 
-**Last Updated:** 2025-12-30
+**Last Updated:** 2025-12-31
 **Phase:** Phase 1 - Sales-Led Growth (Public Facing Focus)
+
+---
+
+## 🚨 CRITICAL: Session Workflow Protocol
+
+### `sync-start` Komutu (Her Session Başında)
+Kullanıcı "sync-start" dediğinde:
+1. `npm run sync-start` çalıştır (GitHub'tan son değişiklikleri çek)
+2. `npm run dev` çalıştır (development server'ı başlat - background'da)
+3. Tüm projeyi tara (PROGRESS.md, CLAUDE.md, PRD.md, son commitler, codebase)
+4. Ne yapıldığını anla ve özetle
+5. **Nerede kaldığımızı söyle** - son çalışılan kısım, bekleyen işler
+
+### `sync-end` Komutu (Her Session Sonunda)
+Kullanıcı "sync-end" dediğinde:
+1. O session'da yapılan her şeyi analiz et
+2. **PROGRESS.md dosyasını güncelle** (tamamlananlar, devam edenler, notlar)
+3. Diğer ilgili dosyaları güncelle (gerekirse)
+4. `npm run sync-end` çalıştır (commit + push to GitHub)
+
+### ⚠️ Önemli Kurallar
+- **Hiçbir şey "tamamlandı" değil** - kullanıcı açıkça onaylayana kadar
+- Ana sayfa dahil hiçbir sayfa için "%100 tamamlandı" deme
+- Kullanıcı onaylamadan "bitti" varsayma
 
 ---
 
