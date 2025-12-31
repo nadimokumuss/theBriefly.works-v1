@@ -193,6 +193,75 @@ function ScrollingColumn({ photos, baseSpeed, initialDirection }: ScrollingColum
   );
 }
 
+// Wave Transition Component for Hero
+function WaveTransition() {
+  const color = "#F0F0F2"; // Light color - next section's background
+  return (
+    <div className="absolute inset-x-0 bottom-0 h-20 overflow-hidden pointer-events-none z-30">
+      <svg
+        className="absolute bottom-0 w-full h-full"
+        viewBox="0 0 1440 100"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Background wave - slower */}
+        <motion.path
+          d="M0,50 C360,100 720,0 1080,50 C1260,75 1350,25 1440,50 L1440,100 L0,100 Z"
+          fill={color}
+          opacity={0.4}
+          animate={{
+            d: [
+              "M0,50 C360,100 720,0 1080,50 C1260,75 1350,25 1440,50 L1440,100 L0,100 Z",
+              "M0,60 C360,20 720,80 1080,40 C1260,25 1350,75 1440,60 L1440,100 L0,100 Z",
+              "M0,50 C360,100 720,0 1080,50 C1260,75 1350,25 1440,50 L1440,100 L0,100 Z",
+            ],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        {/* Middle wave */}
+        <motion.path
+          d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 L1440,100 L0,100 Z"
+          fill={color}
+          opacity={0.6}
+          animate={{
+            d: [
+              "M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 L1440,100 L0,100 Z",
+              "M0,50 C240,80 480,20 720,50 C960,80 1200,20 1440,50 L1440,100 L0,100 Z",
+              "M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 L1440,100 L0,100 Z",
+            ],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        {/* Front wave - faster */}
+        <motion.path
+          d="M0,70 C180,50 360,90 540,70 C720,50 900,90 1080,70 C1260,50 1350,90 1440,70 L1440,100 L0,100 Z"
+          fill={color}
+          animate={{
+            d: [
+              "M0,70 C180,50 360,90 540,70 C720,50 900,90 1080,70 C1260,50 1350,90 1440,70 L1440,100 L0,100 Z",
+              "M0,65 C180,85 360,45 540,65 C720,85 900,45 1080,65 C1260,85 1350,45 1440,65 L1440,100 L0,100 Z",
+              "M0,70 C180,50 360,90 540,70 C720,50 900,90 1080,70 C1260,50 1350,90 1440,70 L1440,100 L0,100 Z",
+            ],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </svg>
+    </div>
+  );
+}
+
 // Fighting Benefits Component - Boxes compete for first place
 const benefitsData = [
   { id: 1, text: "Gerçek Zamanlı Hizmet Takibi", emoji: "📊" },
@@ -332,12 +401,26 @@ function FightingBenefits() {
 
 export function Hero() {
   return (
-    <section className="min-h-[90vh] flex items-center justify-center gradient-ocean-depths relative overflow-hidden">
+    <section className="min-h-[90vh] gradient-ocean-depths relative overflow-hidden">
       {/* Gradient Mesh Overlay */}
       <div className="absolute inset-0 gradient-mesh-bg opacity-50" />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Right Column - Industry Scrolling Gallery - FULL HEIGHT */}
+      <div className="absolute top-0 right-0 bottom-0 w-1/2 hidden lg:block z-20">
+        {/* Gallery Grid - interactive */}
+        <div className="absolute inset-0 grid grid-cols-3 gap-3 p-3">
+          <ScrollingColumn photos={industryPhotos.column1} baseSpeed={0.8} initialDirection={-1} />
+          <ScrollingColumn photos={industryPhotos.column2} baseSpeed={0.5} initialDirection={1} />
+          <ScrollingColumn photos={industryPhotos.column3} baseSpeed={1.2} initialDirection={-1} />
+        </div>
+        {/* Top gradient fade - koyu ocean */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#012326] via-[#012326]/70 to-transparent z-30 pointer-events-none" />
+        {/* Bottom gradient fade - beyaz (sonraki section'a geçiş) */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#F0F0F2] via-[#F0F0F2]/50 to-transparent z-30 pointer-events-none" />
+      </div>
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 min-h-[90vh] flex items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center w-full py-16">
           {/* Left Column - Text Content */}
           <motion.div
             variants={fadeInUp}
@@ -411,27 +494,13 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Industry Scrolling Gallery */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="relative hidden lg:block"
-            style={{ height: "calc(90vh + 8rem)", marginTop: "-4rem", marginBottom: "-4rem" }}
-          >
-            {/* Gallery Container - extends beyond section */}
-            <div className="absolute inset-0 grid grid-cols-3 gap-3">
-              <ScrollingColumn photos={industryPhotos.column1} baseSpeed={0.8} initialDirection={-1} />
-              <ScrollingColumn photos={industryPhotos.column2} baseSpeed={0.5} initialDirection={1} />
-              <ScrollingColumn photos={industryPhotos.column3} baseSpeed={1.2} initialDirection={-1} />
-            </div>
-            {/* Top gradient fade */}
-            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#012326] via-[#012326]/70 to-transparent z-20 pointer-events-none" />
-            {/* Bottom gradient fade - transitions to next section */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#F0F0F2] via-[#F0F0F2]/50 to-transparent z-20 pointer-events-none" />
-          </motion.div>
+          {/* Right column placeholder for grid alignment */}
+          <div className="hidden lg:block" />
         </div>
       </div>
+
+      {/* Wave Transition to next section */}
+      <WaveTransition />
     </section>
   );
 }

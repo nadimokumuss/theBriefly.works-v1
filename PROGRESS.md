@@ -201,11 +201,18 @@ npm run sync-end      # İş bitince (commit + push)
 
 ---
 
-**Son Güncelleme:** 2025-12-31 (gündüz session)
+**Son Güncelleme:** 2025-12-31 (akşam session)
 **Güncelleyen:** Claude
-**Sonraki Adım:** Ana sayfa revizyonları + kullanıcı onayı
+**Sonraki Adım:** Hero kaydırma efektinin test edilmesi + diğer sayfalara geçiş
 
-### Son Session Notu (2025-12-31)
-- Site durumu kontrol edildi (sorun yoktu, kendi düzeldi)
-- Git geçmişi incelendi - gece 02:13'te yapılan değişiklikler görüldü
-- Kod değişikliği yapılmadı, sadece durum kontrolü
+### Son Session Notu (2025-12-31 Akşam)
+**Hero Section Revizyonları:**
+- 3 sütunlu fotoğraf galerisi tam yüksekliğe ayarlandı (section üst-alt hizalı)
+- Gallery sağ tarafa absolute positioning ile yerleştirildi
+- Üst fade: Koyu ocean (#012326)
+- Alt fade: Beyaz (#F0F0F2) - sonraki section'a geçiş için
+- Wave transition Hero'nun altına eklendi
+- Mouse ile kaydırma efekti için z-index düzenlendi (gallery z-20, text z-10)
+
+**Bekleyen Kontrol:**
+- Mouse ile sütunları kaydırma efektinin çalışıp çalışmadığı test edilmeli
