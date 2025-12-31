@@ -201,7 +201,7 @@ npm run sync-end      # İş bitince (commit + push)
 
 ---
 
-**Son Güncelleme:** 2025-12-31 (akşam session)
+**Son Güncelleme:** 2026-01-01
 **Güncelleyen:** Claude
 **Sonraki Adım:** Hero kaydırma efektinin test edilmesi + diğer sayfalara geçiş
 
