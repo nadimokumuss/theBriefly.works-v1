@@ -10,78 +10,67 @@
 **Tarih:** 2026-01-01
 **Bilgisayar:** Ev
 **Phase:** Phase 1 - Public Pages Development
-**Odak:** Ana sayfa revizyonları tamamlanıyor
+**Odak:** Section 3-4 revizyonları + Brify maskot
 
 ---
 
-## ✅ Bu Session'da Tamamlananlar (2026-01-01)
+## ✅ Bu Session'da Tamamlananlar (2026-01-01 - Akşam)
 
-### Hero Section
-- [x] Mouse ile sütunları kaydırma efekti test edildi - **ÇALIŞIYOR**
-- [x] 3 sütunlu fotoğraf galerisi, drag & momentum efekti aktif
+### Pricing Güncellemesi (Section 3 - PricingPreview)
+- [x] `config/pricing.ts` yeni fiyatlarla güncellendi:
+  - **Starter:** ₺25.000/ay (eskiden ₺15.000)
+    - 4 dikey video, 10 kare + 10 dikey fotoğraf, 1 çekim, 5 revizyon
+  - **Pro:** ₺35.000/ay
+    - 6 video, 15+15 fotoğraf, 2 çekim, SM yönetimi, 8 revizyon
+  - **Enterprise:** ₺45.000/ay (eskiden ₺75.000)
+    - 8-10 video, 20+20 fotoğraf, 3 çekim, SM + Reklam yönetimi, 10 revizyon
 
-### ProblemSolution Section (Section 2)
-- [x] Fotoğrafların üzerindeki turkuaz overlay kaldırıldı
-- [x] Yazılar güncellendi:
-  - Metric 1: "Yılda 420.000 TL Tasarruf"
-  - Metric 2: "%92 Memnuniyet Oranı"
-  - Metric 3: "10 Kat Daha Hızlı Sonuç"
-  - Problem 1: "Geleneksel Ajanslar Pahalı, Yavaş ve Şeffaf Değil"
-  - Problem 2: "Freelancer'lar Riskli ve Kaliteleri Değişken"
-  - Problem 3: "Her İş İçin Farklı Kişi, Koordinasyonda Kaos"
-  - Solution 1: "Sabit Fiyat ve Net Teslimat Süresi"
-  - Solution 2: "Onaylanmış Ekip ve Tutarlı Kalite"
-  - Solution 3: "Tek Platformda Tüm Kreatif İhtiyaçlar"
-- [x] Sorun metinlerindeki üstü çizili (strikethrough) stil kaldırıldı
+### CustomSquadTeaser (Section 4) - Tam Yeniden Tasarım
+- [x] İnteraktif fiyat hesaplayıcı eklendi
+- [x] **Sektör seçimi:** 7 sektör (E-ticaret, Restoran, Kurumsal, Moda, Gayrimenkul, Kişisel Marka, Hizmet)
+- [x] **Dropdown'lar:** Video (0-20+), Fotoğraf (0-60+), Çekim (0-3+ gün)
+- [x] **Checkbox'lar:** Kurgu/Rötuş, SM Yönetimi, Reklam
+- [x] Sektör seçilince önerilen değerler otomatik doluyor
+- [x] Kurgu hariç %30 indirim özelliği
+- [x] Kompakt hibrit layout (D opsiyonu seçildi)
+- [x] Dinamik fiyat hesaplama
 
-### CompetitiveAdvantage Section
-- [x] 4 dikey kart → 2x2 grid layouta dönüştürüldü
-- [x] Daha kompakt ve alan-verimli tasarım
-- [x] Hover efekti eklendi (yukarı kalkma)
+### Brify Maskot - YENİ!
+- [x] Ahtapot maskotu oluşturuldu (`components/mascot/Brify.tsx`)
+- [x] Kubbe şeklinde kafa (mantle) - gerçek ahtapot anatomisi
+- [x] 4 ana kol + 2 dekoratif arka kol (8 kol hissi)
+- [x] Her kolda vantuzlar
+- [x] Kıvrımlı dokunaçlar (Bezier curves)
+- [x] Her kol bir hizmeti temsil ediyor (Video, Foto, SM, Reklam)
+- [x] Animasyonlu kollar - seçimlere göre aktifleşiyor
+- [x] Yüz ifadeleri: neutral → happy → excited
+- [x] Heyecanlıyken pembe yanaklar
+- [x] Konuşma balonu ile teşvik mesajları
 
-### Section Sıralaması Değişikliği
-- [x] Tekrar eden içerik sorunu çözüldü
-- [x] Yeni sıralama (renk geçişleri korundu):
-  1. Hero
-  2. ProblemSolution (light → primary)
-  3. **PricingPreview** (primary → light) ← eskiden 5. sıradaydı
-  4. CustomSquadTeaser (light → teal)
-  5. **CompetitiveAdvantage** (teal → light) ← eskiden 3. sıradaydı
-  6. HowItWorks (light → primary)
-  7. SocialProof
-  8. PlatformPreview
-  9. SalesAffiliateTeaser
-  10. FinalCTA
+### Yeni UI Componentleri
+- [x] `components/ui/switch.tsx` - Toggle switch
+- [x] `components/ui/select.tsx` - Dropdown select
+- [x] `components/ui/checkbox.tsx` - Checkbox
 
-### Denenen ama Geri Alınan
-- Kumsal/dalga animasyonu (gerçekçi kum rengi) - görsel olarak uyumsuz çıktı
+### Yeni NPM Paketleri
+- [x] `@radix-ui/react-switch`
+- [x] `@radix-ui/react-select`
+- [x] `@radix-ui/react-checkbox`
 
 ---
 
 ## 🔄 Devam Eden Çalışmalar
 
-### Homepage (Ana Sayfa) - %80 TAMAMLANDI
+### Homepage (Ana Sayfa) - %85 TAMAMLANDI
 - [x] 10 section'lı yapı oluşturuldu
-- [x] Hero section tamamlandı (kaydırma efekti dahil)
+- [x] Hero section tamamlandı
 - [x] ProblemSolution section tamamlandı
-- [x] CompetitiveAdvantage 2x2 grid'e dönüştürüldü
-- [x] Section sıralaması optimize edildi
-- [ ] Diğer section'ların son kontrolü (6-10 arası)
+- [x] PricingPreview güncellendi (yeni fiyatlar)
+- [x] CustomSquadTeaser tamamen yeniden tasarlandı
+- [x] CompetitiveAdvantage 2x2 grid
+- [x] Brify maskot eklendi
+- [ ] Section 6-10 son kontrol
 - [ ] Mobil responsive kontrolü
-
-### Documentation
-- [x] PRD.md - Kapsamlı ürün gereksinimleri dökümanı
-- [x] CLAUDE.md - AI için teknik talimatlar
-- [x] DESIGN_SYSTEM.md - Tasarım sistemi
-- [x] HOMEPAGE_PLAN.md - Ana sayfa planı
-- [x] SYNC_GUIDE.md - İki bilgisayar arası senkronizasyon rehberi
-- [x] PROGRESS.md (bu dosya) - İlerleme takibi
-
-### Infrastructure
-- [x] Git repository setup
-- [x] GitHub Desktop authentication çalışıyor
-- [x] Senkronizasyon scriptleri (`npm run sync-start` / `sync-end`)
-- [x] Dev environment kurulumu
 
 ---
 
@@ -100,7 +89,7 @@
 10. [ ] `/yasal` - Legal docs hub
 11. [ ] `/uzman-basvurusu` - Freelancer waitlist
 
-### Phase 2 - Orta Vadeli (Aylar)
+### Phase 2 - Orta Vadeli
 - [ ] Authentication system (login/register)
 - [ ] Client Dashboard
 - [ ] Sales Dashboard
@@ -116,15 +105,43 @@
 
 ## 🎨 Son Tasarım Kararları
 
-### Renk Paleti: İstanbul Bosphorus - Ocean Breeze (Dark Dominant)
-- Background: Deep Ocean `#012326` (Ana arkaplan)
+### Pricing (config/pricing.ts) - GÜNCELLEME
+- Starter: ₺25.000/ay
+- Pro: ₺35.000/ay (Popular)
+- Enterprise: ₺45.000/ay
+
+### Custom Calculator Fiyatlandırması
+| Öğe | Fiyat |
+|-----|-------|
+| Video 1-5 | ₺5.000 |
+| Video 6-10 | ₺10.000 |
+| Video 11-20 | ₺18.000 |
+| Video 20+ | ₺25.000 |
+| Fotoğraf 1-20 | ₺4.000 |
+| Fotoğraf 21-40 | ₺7.000 |
+| Fotoğraf 41-60 | ₺10.000 |
+| Fotoğraf 60+ | ₺15.000 |
+| Çekim 1 gün | ₺3.000 |
+| Çekim 2 gün | ₺5.500 |
+| Çekim 3+ gün | ₺8.000 |
+| SM Yönetimi | ₺5.000 |
+| Reklam Yönetimi | ₺5.000 |
+| Kurgu hariç | -%30 |
+
+### Brify Maskot Renkleri
+- Ana: `#6A9BA6` → `#4A8A97` (gradient)
+- Vantuzlar: `#A3C9D9`
+- Tool daireleri: `#012326` (aktif), `#346C73` (pasif)
+
+### Renk Paleti: İstanbul Bosphorus - Ocean Breeze
+- Background: Deep Ocean `#012326`
 - Primary: Dark Turquoise `#205459`
 - Secondary/Teal: Mid-Dark Turquoise `#346C73`
-- Accent: Muted Turquoise `#6A9BA6` (CTA, vurgular)
-- Foreground: Light Gray `#F0F0F2` (Ana metin)
+- Accent: Muted Turquoise `#6A9BA6`
+- Foreground: Light Gray `#F0F0F2`
 - Ocean Light: `#A3C9D9`
 
-### Section Arkaplan Akışı (Güncel)
+### Section Arkaplan Akışı
 ```
 Hero (ocean-depths)
   ↓
@@ -132,7 +149,7 @@ ProblemSolution (light) → primary
   ↓
 PricingPreview (primary) → light
   ↓
-CustomSquadTeaser (light) → teal
+CustomSquadTeaser (light) → teal  ← Brify + Calculator
   ↓
 CompetitiveAdvantage (teal) → light
   ↓
@@ -147,45 +164,21 @@ SalesAffiliateTeaser (oceanDeep) → dark
 FinalCTA
 ```
 
-### Font System
-- Body: Montserrat (Google Fonts)
-- Display/Accent: Baumans (tüm vurgulu metinler)
-- Gradient Effect: White-to-ocean gradient on all accent text
-
-### Animasyon Stili: Calm & Deliberate
-- Default duration: 800ms
-- Easing: cubic-bezier(0.25, 0.1, 0.25, 1)
-- Hover: 200ms
-
-### Pricing (config/pricing.ts)
-- Starter: ₺15,000/ay
-- Pro: ₺35,000/ay (Popular)
-- Enterprise: ₺75,000/ay
-
 ---
 
 ## 💡 Önemli Notlar & Kararlar
 
-### UX Kararları (2026-01-01)
-- ProblemSolution'daki strikethrough okunabilirliği bozuyordu → kaldırıldı
-- CompetitiveAdvantage 4 kart çok yer kaplıyordu → 2x2 grid daha verimli
-- Section 2 ve 3 benzer konulardan bahsediyordu → sıralama değiştirildi
-
-### Competitive Insights
-- Speed claims: 24-48 saat teslimat (Design Pickle match)
-- ROI quantification: ₺420k tasarruf messaging
-- Platform preview: Trust signal for Phase 2
+### UX Kararları (2026-01-01 Akşam)
+- CustomSquadTeaser çok uzuyordu → Kompakt hibrit layout (Opsiyon D) seçildi
+- Dropdown'lar buton gruplarından daha alan-verimli
+- Sektör seçimi pill/chip butonları şeklinde
+- Maskot örümceğe benziyordu → Gerçek ahtapot anatomisi ile yeniden tasarlandı
 
 ### Technical Decisions
-- No hard-coding prices (use config/pricing.ts)
-- Multi-role architecture (route groups)
-- TypeScript strict mode (no `any`)
-- Shadcn/UI component library
-
-### Content Strategy
-- Turkish language for all user-facing content
-- Sales-first approach (affiliate recruitment priority)
-- Trust signals: Metrics, testimonials, competitive advantages
+- Radix UI primitives for Select, Checkbox, Switch
+- Framer Motion for mascot animations
+- SVG-based mascot for scalability
+- foreignObject for Lucide icons inside SVG
 
 ---
 
@@ -211,6 +204,7 @@ npm run sync-end      # İş bitince (commit + push)
 - `CLAUDE.md` - AI instructions
 - `PROGRESS.md` - Current status (BU DOSYA)
 - `config/pricing.ts` - Pricing configuration
+- `components/mascot/Brify.tsx` - Ahtapot maskot **YENİ**
 - `lib/animations.ts` - Animation variants
 - `app/globals.css` - Design system CSS
 
@@ -218,7 +212,7 @@ npm run sync-end      # İş bitince (commit + push)
 1. `/components/sections/Hero.tsx`
 2. `/components/sections/ProblemSolution.tsx`
 3. `/components/sections/PricingPreview.tsx`
-4. `/components/sections/CustomSquadTeaser.tsx`
+4. `/components/sections/CustomSquadTeaser.tsx` ← Calculator + Brify
 5. `/components/sections/CompetitiveAdvantage.tsx`
 6. `/components/sections/HowItWorks.tsx`
 7. `/components/sections/SocialProof.tsx`
@@ -228,6 +222,6 @@ npm run sync-end      # İş bitince (commit + push)
 
 ---
 
-**Son Güncelleme:** 2026-01-01 (Gece)
+**Son Güncelleme:** 2026-01-01 (Akşam)
 **Güncelleyen:** Claude
-**Sonraki Adım:** Ana sayfa son kontroller (section 6-10) + Mobil test + /paketler sayfası
+**Sonraki Adım:** Section 6-10 kontrol + Mobil test + /paketler sayfası
