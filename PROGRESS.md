@@ -7,43 +7,67 @@
 
 ## 📍 Güncel Durum
 
-**Tarih:** 2025-12-31
-**Bilgisayar:** Ofis (Masaüstü)
+**Tarih:** 2026-01-01
+**Bilgisayar:** Ev
 **Phase:** Phase 1 - Public Pages Development
-**Odak:** Ana sayfa finalization + Statik sayfalar
+**Odak:** Ana sayfa revizyonları tamamlanıyor
+
+---
+
+## ✅ Bu Session'da Tamamlananlar (2026-01-01)
+
+### Hero Section
+- [x] Mouse ile sütunları kaydırma efekti test edildi - **ÇALIŞIYOR**
+- [x] 3 sütunlu fotoğraf galerisi, drag & momentum efekti aktif
+
+### ProblemSolution Section (Section 2)
+- [x] Fotoğrafların üzerindeki turkuaz overlay kaldırıldı
+- [x] Yazılar güncellendi:
+  - Metric 1: "Yılda 420.000 TL Tasarruf"
+  - Metric 2: "%92 Memnuniyet Oranı"
+  - Metric 3: "10 Kat Daha Hızlı Sonuç"
+  - Problem 1: "Geleneksel Ajanslar Pahalı, Yavaş ve Şeffaf Değil"
+  - Problem 2: "Freelancer'lar Riskli ve Kaliteleri Değişken"
+  - Problem 3: "Her İş İçin Farklı Kişi, Koordinasyonda Kaos"
+  - Solution 1: "Sabit Fiyat ve Net Teslimat Süresi"
+  - Solution 2: "Onaylanmış Ekip ve Tutarlı Kalite"
+  - Solution 3: "Tek Platformda Tüm Kreatif İhtiyaçlar"
+- [x] Sorun metinlerindeki üstü çizili (strikethrough) stil kaldırıldı
+
+### CompetitiveAdvantage Section
+- [x] 4 dikey kart → 2x2 grid layouta dönüştürüldü
+- [x] Daha kompakt ve alan-verimli tasarım
+- [x] Hover efekti eklendi (yukarı kalkma)
+
+### Section Sıralaması Değişikliği
+- [x] Tekrar eden içerik sorunu çözüldü
+- [x] Yeni sıralama (renk geçişleri korundu):
+  1. Hero
+  2. ProblemSolution (light → primary)
+  3. **PricingPreview** (primary → light) ← eskiden 5. sıradaydı
+  4. CustomSquadTeaser (light → teal)
+  5. **CompetitiveAdvantage** (teal → light) ← eskiden 3. sıradaydı
+  6. HowItWorks (light → primary)
+  7. SocialProof
+  8. PlatformPreview
+  9. SalesAffiliateTeaser
+  10. FinalCTA
+
+### Denenen ama Geri Alınan
+- Kumsal/dalga animasyonu (gerçekçi kum rengi) - görsel olarak uyumsuz çıktı
 
 ---
 
 ## 🔄 Devam Eden Çalışmalar
 
-### Homepage (Ana Sayfa) - DEVAM EDİYOR
-- [x] 10 section'lı yapı oluşturuldu:
-  1. Hero (24-48 saat teslimat vurgusu)
-  2. Problem-Solution
-  3. Competitive Advantage (ROI calculator teaser ile)
-  4. Custom Squad Teaser
-  5. Pricing Preview
-  6. How It Works
-  7. Social Proof (metriklerle güçlendirilmiş)
-  8. Platform Preview (Phase 2 özellikleri)
-  9. Sales Affiliate Teaser
-  10. Final CTA
-
-- [x] Competitive analysis tamamlandı (5 firma):
-  - Superside, Design Pickle, Video Husky, Mayple, Flocksy
-
-- [x] Teslimat süreleri güncellendi:
-  - Starter: 3 iş günü
-  - Pro: 24-48 saat
-  - Enterprise: 12-24 saat
-
-- [x] Complete design overhaul (2025-12-30):
-  - İstanbul Bosphorus - Ocean Breeze renk paleti uygulandı
-  - Dark ocean-dominant theme (koyu okyanus teması)
-  - Premium gradient system (gradient-ocean-depths, gradient-mesh-bg, gradient-cta, etc.)
-  - Baumans display font tüm vurgulu metinlere uygulandı
-  - White-to-ocean gradient text effect (.gradient-text-white-to-ocean)
-  - Tüm section başlıklarına consistent branding
+### Homepage (Ana Sayfa) - %80 TAMAMLANDI
+- [x] 10 section'lı yapı oluşturuldu
+- [x] Hero section tamamlandı (kaydırma efekti dahil)
+- [x] ProblemSolution section tamamlandı
+- [x] CompetitiveAdvantage 2x2 grid'e dönüştürüldü
+- [x] Section sıralaması optimize edildi
+- [ ] Diğer section'ların son kontrolü (6-10 arası)
+- [ ] Mobil responsive kontrolü
 
 ### Documentation
 - [x] PRD.md - Kapsamlı ürün gereksinimleri dökümanı
@@ -63,17 +87,18 @@
 
 ## 📋 Yapılacaklar (Öncelik Sırasına Göre)
 
-### Phase 1 - Kısa Vadeli (Haftalar)
-1. [ ] Ana sayfa revizyonlarını tamamla
-2. [ ] `/paketler` - Pricing sayfası + Custom Builder Calculator
-3. [ ] `/nasil-calisir` - Detaylı süreç sayfası
-4. [ ] `/satis-ortakligi` - Sales affiliate recruitment
-5. [ ] `/portfolyo` - Portfolio showcase
-6. [ ] `/hakkimizda` - About us
-7. [ ] `/iletisim` - Contact page
-8. [ ] `/sss` - FAQ
-9. [ ] `/yasal` - Legal docs hub
-10. [ ] `/uzman-basvurusu` - Freelancer waitlist
+### Phase 1 - Kısa Vadeli
+1. [ ] Ana sayfa son kontroller (section 6-10 review)
+2. [ ] Mobil responsive test
+3. [ ] `/paketler` - Pricing sayfası + Custom Builder Calculator **← CRITICAL**
+4. [ ] `/nasil-calisir` - Detaylı süreç sayfası
+5. [ ] `/satis-ortakligi` - Sales affiliate recruitment **← HIGH PRIORITY**
+6. [ ] `/portfolyo` - Portfolio showcase
+7. [ ] `/hakkimizda` - About us
+8. [ ] `/iletisim` - Contact page
+9. [ ] `/sss` - FAQ
+10. [ ] `/yasal` - Legal docs hub
+11. [ ] `/uzman-basvurusu` - Freelancer waitlist
 
 ### Phase 2 - Orta Vadeli (Aylar)
 - [ ] Authentication system (login/register)
@@ -92,24 +117,40 @@
 ## 🎨 Son Tasarım Kararları
 
 ### Renk Paleti: İstanbul Bosphorus - Ocean Breeze (Dark Dominant)
-- Background: Deep Ocean `hsl(185, 95%, 8%)` - #012326 (Ana arkaplan)
-- Primary: Dark Turquoise `hsl(185, 47%, 24%)` - #205459
-- Secondary: Mid-Dark Turquoise `hsl(187, 38%, 33%)` - #346C73
-- Accent: Muted Turquoise `hsl(191, 25%, 53%)` - #6A9BA6 (CTA, vurgular)
-- Foreground: Light Gray `hsl(240, 10%, 95%)` - #F0F0F2 (Ana metin)
-- Ocean Light: `hsl(193, 30%, 73%)` - #A3C9D9
+- Background: Deep Ocean `#012326` (Ana arkaplan)
+- Primary: Dark Turquoise `#205459`
+- Secondary/Teal: Mid-Dark Turquoise `#346C73`
+- Accent: Muted Turquoise `#6A9BA6` (CTA, vurgular)
+- Foreground: Light Gray `#F0F0F2` (Ana metin)
+- Ocean Light: `#A3C9D9`
+
+### Section Arkaplan Akışı (Güncel)
+```
+Hero (ocean-depths)
+  ↓
+ProblemSolution (light) → primary
+  ↓
+PricingPreview (primary) → light
+  ↓
+CustomSquadTeaser (light) → teal
+  ↓
+CompetitiveAdvantage (teal) → light
+  ↓
+HowItWorks (light) → primary
+  ↓
+SocialProof (primary) → light
+  ↓
+PlatformPreview (light) → primary
+  ↓
+SalesAffiliateTeaser (oceanDeep) → dark
+  ↓
+FinalCTA
+```
 
 ### Font System
 - Body: Montserrat (Google Fonts)
 - Display/Accent: Baumans (tüm vurgulu metinler)
 - Gradient Effect: White-to-ocean gradient on all accent text
-
-### Gradient Utilities
-- `.gradient-ocean-depths` - Dark ocean background gradient
-- `.gradient-mesh-bg` - Animated mesh overlay
-- `.gradient-cta` - Animated CTA button gradient
-- `.gradient-accent-glow` - Glowing accent gradient
-- `.gradient-text-white-to-ocean` - White to ocean text gradient
 
 ### Animasyon Stili: Calm & Deliberate
 - Default duration: 800ms
@@ -124,6 +165,11 @@
 ---
 
 ## 💡 Önemli Notlar & Kararlar
+
+### UX Kararları (2026-01-01)
+- ProblemSolution'daki strikethrough okunabilirliği bozuyordu → kaldırıldı
+- CompetitiveAdvantage 4 kart çok yer kaplıyordu → 2x2 grid daha verimli
+- Section 2 ve 3 benzer konulardan bahsediyordu → sıralama değiştirildi
 
 ### Competitive Insights
 - Speed claims: 24-48 saat teslimat (Design Pickle match)
@@ -149,30 +195,6 @@ _Şu an bilinen sorun yok_
 
 ---
 
-## 🔄 Session Geçiş Protokolü
-
-### Yeni Session Başlatırken (Her Zaman Yapın!)
-Claude'a şunu söyleyin:
-```
-"Merhaba Claude, theBriefly.works projesine devam edeceğiz.
-Lütfen PROGRESS.md, CLAUDE.md ve PRD.md dosyalarını oku ve projeyi tara."
-```
-
-Claude otomatik olarak:
-1. ✅ PROGRESS.md okuyacak (son durum)
-2. ✅ CLAUDE.md okuyacak (teknik context)
-3. ✅ PRD.md okuyacak (ürün gereksinimleri)
-4. ✅ Git log inceleyecek (son değişiklikler)
-5. ✅ Codebase'i tarayacak (mevcut durum)
-
-### İş Bitince (Güncelleme Yapın!)
-Bu dosyayı (PROGRESS.md) güncelleyin:
-- ✅ Tamamlananlar'a ekleyin
-- 📋 Yapılacaklar'dan silin
-- 💡 Önemli kararları not edin
-
----
-
 ## 📚 Hızlı Referans
 
 ### Komutlar
@@ -192,27 +214,20 @@ npm run sync-end      # İş bitince (commit + push)
 - `lib/animations.ts` - Animation variants
 - `app/globals.css` - Design system CSS
 
-### Ana Sayfa Sections
-- `/components/sections/Hero.tsx`
-- `/components/sections/CompetitiveAdvantage.tsx`
-- `/components/sections/PlatformPreview.tsx`
-- `/components/sections/PricingPreview.tsx`
-- `/components/sections/SocialProof.tsx`
+### Ana Sayfa Sections (Güncel Sıra)
+1. `/components/sections/Hero.tsx`
+2. `/components/sections/ProblemSolution.tsx`
+3. `/components/sections/PricingPreview.tsx`
+4. `/components/sections/CustomSquadTeaser.tsx`
+5. `/components/sections/CompetitiveAdvantage.tsx`
+6. `/components/sections/HowItWorks.tsx`
+7. `/components/sections/SocialProof.tsx`
+8. `/components/sections/PlatformPreview.tsx`
+9. `/components/sections/SalesAffiliateTeaser.tsx`
+10. `/components/sections/FinalCTA.tsx`
 
 ---
 
-**Son Güncelleme:** 2026-01-01
+**Son Güncelleme:** 2026-01-01 (Gece)
 **Güncelleyen:** Claude
-**Sonraki Adım:** Hero kaydırma efektinin test edilmesi + diğer sayfalara geçiş
-
-### Son Session Notu (2025-12-31 Akşam)
-**Hero Section Revizyonları:**
-- 3 sütunlu fotoğraf galerisi tam yüksekliğe ayarlandı (section üst-alt hizalı)
-- Gallery sağ tarafa absolute positioning ile yerleştirildi
-- Üst fade: Koyu ocean (#012326)
-- Alt fade: Beyaz (#F0F0F2) - sonraki section'a geçiş için
-- Wave transition Hero'nun altına eklendi
-- Mouse ile kaydırma efekti için z-index düzenlendi (gallery z-20, text z-10)
-
-**Bekleyen Kontrol:**
-- Mouse ile sütunları kaydırma efektinin çalışıp çalışmadığı test edilmeli
+**Sonraki Adım:** Ana sayfa son kontroller (section 6-10) + Mobil test + /paketler sayfası

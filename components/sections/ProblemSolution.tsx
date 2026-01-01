@@ -9,25 +9,25 @@ import Image from "next/image";
 
 const problems = [
   {
-    problem: "Ajanslar pahalı, yavaş, şeffaf değil",
-    solution: "Sabit fiyat, net teslimat süresi",
+    problem: "Geleneksel Ajanslar Pahalı, Yavaş ve Şeffaf Değil",
+    solution: "Sabit Fiyat ve Net Teslimat Süresi",
     icon: TrendingUp,
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-    metric: "₺420k tasarruf/yıl",
+    metric: "Yılda 420.000 TL Tasarruf",
   },
   {
-    problem: "Freelancer'lar riskli, kalite değişken",
-    solution: "Vetlenmiş ekip, tutarlı kalite",
+    problem: "Freelancer'lar Riskli ve Kaliteleri Değişken",
+    solution: "Onaylanmış Ekip ve Tutarlı Kalite",
     icon: Shield,
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=80",
-    metric: "98% memnuniyet",
+    metric: "%92 Memnuniyet Oranı",
   },
   {
-    problem: "Her iş için farklı kişi, koordinasyon kaos",
-    solution: "Tek platform, tüm kreatif ihtiyaçlar",
+    problem: "Her İş İçin Farklı Kişi, Koordinasyonda Kaos",
+    solution: "Tek Platformda Tüm Kreatif İhtiyaçlar",
     icon: Zap,
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
-    metric: "10x daha hızlı",
+    metric: "10 Kat Daha Hızlı Sonuç",
   },
 ];
 
@@ -75,7 +75,6 @@ export function ProblemSolution() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="overlay-dark" />
 
                   {/* Icon Badge */}
                   <div className="absolute top-4 left-4 p-3 bg-accent rounded-xl">
@@ -97,7 +96,7 @@ export function ProblemSolution() {
                         <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                           Sorun
                         </p>
-                        <p className="text-sm text-foreground/70 line-through">{item.problem}</p>
+                        <p className="text-sm text-foreground/70">{item.problem}</p>
                       </div>
                     </div>
                   </div>

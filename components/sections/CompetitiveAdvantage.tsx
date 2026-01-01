@@ -46,7 +46,7 @@ const comparisons = [
 
 export function CompetitiveAdvantage() {
   return (
-    <Section background="primary" transitionTo="light">
+    <Section background="teal" transitionTo="light">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -74,54 +74,36 @@ export function CompetitiveAdvantage() {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-100px" }}
-        className="space-y-6"
+        className="grid md:grid-cols-2 gap-4"
       >
         {comparisons.map((item, index) => {
           const Icon = item.icon;
           return (
             <motion.div key={index} variants={fadeInUpChild}>
-              <Card className="shadow-warm hover:shadow-warm-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="grid md:grid-cols-12 gap-6 items-center">
-                    {/* Icon & Category */}
-                    <div className="md:col-span-3 flex items-center gap-3">
-                      <div className="p-3 bg-accent/10 rounded-lg">
-                        <Icon className="w-6 h-6 text-accent" />
+              <Card className="h-full shadow-warm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-5">
+                  {/* Header: Icon + Category + Savings Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="p-2 bg-accent/10 rounded-lg">
+                        <Icon className="w-5 h-5 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-lg">{item.category}</h3>
+                      <h3 className="font-semibold">{item.category}</h3>
                     </div>
-
-                    {/* Traditional (Red X) */}
-                    <div className="md:col-span-4 flex items-start gap-2">
-                      <XCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
-                          Geleneksel Yöntem
-                        </p>
-                        <p className="text-sm text-foreground/80">
-                          {item.traditional}
-                        </p>
-                      </div>
+                    <div className="px-2 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">
+                      {item.savings}
                     </div>
+                  </div>
 
-                    {/* The Briefly (Green Check) */}
-                    <div className="md:col-span-4 flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-1">
-                          The Briefly
-                        </p>
-                        <p className="text-sm font-medium text-foreground">
-                          {item.briefly}
-                        </p>
-                      </div>
+                  {/* Comparison: Traditional vs Briefly */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <XCircle className="w-4 h-4 text-destructive shrink-0" />
+                      <span className="text-foreground/70">{item.traditional}</span>
                     </div>
-
-                    {/* Savings Badge */}
-                    <div className="md:col-span-1 text-right">
-                      <div className="inline-flex px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">
-                        {item.savings}
-                      </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+                      <span className="font-medium text-foreground">{item.briefly}</span>
                     </div>
                   </div>
                 </CardContent>

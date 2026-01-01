@@ -12,7 +12,7 @@ import { Check } from "lucide-react";
 
 export function PricingPreview() {
   return (
-    <Section background="teal" transitionTo="light">
+    <Section background="primary" transitionTo="light">
       <div className="text-center space-y-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

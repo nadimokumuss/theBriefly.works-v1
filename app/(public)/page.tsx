@@ -14,9 +14,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <ProblemSolution />
-      <CompetitiveAdvantage />
-      <CustomSquadTeaser />
       <PricingPreview />
+      <CustomSquadTeaser />
+      <CompetitiveAdvantage />
       <HowItWorks />
       <SocialProof />
       <PlatformPreview />
