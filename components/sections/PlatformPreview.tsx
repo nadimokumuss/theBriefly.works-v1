@@ -50,14 +50,14 @@ const upcomingFeatures = [
 export function PlatformPreview() {
   return (
     <Section background="light" transitionTo="primary">
-      <div className="text-center space-y-4 mb-16">
+      <div className="text-center space-y-4 mb-10 md:mb-16">
         <Badge className="bg-accent mb-4">Yakında</Badge>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-[#012326]"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#012326]"
         >
           Sadece Bir Platform Değil,{" "}
           <span className="text-accent font-baumans">Akıllı Çalışma Sistemi</span>

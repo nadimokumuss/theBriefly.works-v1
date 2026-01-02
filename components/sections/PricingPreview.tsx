@@ -13,13 +13,13 @@ import { Check } from "lucide-react";
 export function PricingPreview() {
   return (
     <Section background="primary" transitionTo="light">
-      <div className="text-center space-y-4 mb-16">
+      <div className="text-center space-y-4 mb-10 md:mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-5xl font-bold text-white"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white"
         >
           Önceden Belirlenmiş <span className="gradient-text-white-to-ocean font-baumans">Paketler</span>
         </motion.h2>
@@ -45,7 +45,7 @@ export function PricingPreview() {
           <motion.div key={tier.id} variants={fadeInUpChild}>
             <Card
               className={`h-full shadow-depth hover:shadow-glow-accent hover-lift transition-all duration-300 bg-card ${
-                tier.popular ? "border-2 border-accent scale-105 gradient-accent-glow" : "border-accent/20"
+                tier.popular ? "border-2 border-accent md:scale-105 gradient-accent-glow" : "border-accent/20"
               }`}
             >
               <CardHeader>
@@ -62,11 +62,11 @@ export function PricingPreview() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <ul className="space-y-3">
-                  {tier.features.slice(0, 4).map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                      <span className="text-sm">{feature}</span>
+                <ul className="space-y-2 sm:space-y-3">
+                  {tier.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 sm:gap-3">
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-accent shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>

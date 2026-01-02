@@ -41,7 +41,7 @@ export function SalesAffiliateTeaser() {
         >
           <Badge className="bg-accent w-fit">Sales Affiliate Program</Badge>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             Satış Ortağı Ol,{" "}
             <span className="gradient-text-white-to-ocean font-baumans">Pasif Gelir Kazan</span>
           </h2>

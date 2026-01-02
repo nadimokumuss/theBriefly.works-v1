@@ -12,7 +12,8 @@
       "WebFetch(domain:www.marketerhire.com)",
       "WebFetch(domain:www.penji.co)",
       "WebFetch(domain:www.superside.com)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run typecheck:*)"
     ]
   }
 }

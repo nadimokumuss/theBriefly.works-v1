@@ -40,14 +40,16 @@ export function FinalCTA() {
 
         {/* Headline */}
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-6xl font-bold max-w-4xl mx-auto text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold max-w-4xl mx-auto text-white">
             Kreatif İşlerinizi{" "}
             <span className="gradient-text-white-to-ocean font-baumans">Dijital Montaj Hattına™</span>
-            <br />Taşımaya <span className="gradient-text-white-to-ocean font-baumans">Hazır mısınız?</span>
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>Taşımaya <span className="gradient-text-white-to-ocean font-baumans">Hazır mısınız?</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto font-medium">
+          <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto font-medium">
             Ajans kalitesi, freelancer esnekliği, platform hızı.
-            <br />
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
             <strong className="gradient-text-white-to-ocean font-baumans">Bugün başlayın</strong>, farkı hemen görün.
           </p>
         </div>
@@ -70,18 +72,18 @@ export function FinalCTA() {
         </div>
 
         {/* Trust Badge */}
-        <div className="pt-12 flex flex-row justify-center gap-6 text-white/80">
+        <div className="pt-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 text-white/80">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">📊</span>
-            <span className="text-sm font-medium">Gerçek Zamanlı Takip</span>
+            <span className="text-xl sm:text-2xl">📊</span>
+            <span className="text-xs sm:text-sm font-medium">Gerçek Zamanlı Takip</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🔄</span>
-            <span className="text-sm font-medium">Anlık Revize Sistemi</span>
+            <span className="text-xl sm:text-2xl">🔄</span>
+            <span className="text-xs sm:text-sm font-medium">Anlık Revize Sistemi</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🛡️</span>
-            <span className="text-sm font-medium">Önce İş, Sonra Ödeme</span>
+            <span className="text-xl sm:text-2xl">🛡️</span>
+            <span className="text-xs sm:text-sm font-medium">Önce İş, Sonra Ödeme</span>
           </div>
         </div>
       </motion.div>

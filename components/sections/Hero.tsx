@@ -477,19 +477,19 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="grid grid-cols-3 gap-6 pt-8 pb-16"
+              className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 pb-16"
             >
               <div>
-                <p className="text-3xl font-bold text-accent">500+</p>
-                <p className="text-sm text-muted-foreground">Tamamlanan Proje</p>
+                <p className="text-2xl sm:text-3xl font-bold text-accent">500+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Tamamlanan Proje</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-accent">50+</p>
-                <p className="text-sm text-muted-foreground">Aktif Marka</p>
+                <p className="text-2xl sm:text-3xl font-bold text-accent">50+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Aktif Marka</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-accent">98%</p>
-                <p className="text-sm text-muted-foreground">Memnuniyet</p>
+                <p className="text-2xl sm:text-3xl font-bold text-accent">98%</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Memnuniyet</p>
               </div>
             </motion.div>
           </motion.div>

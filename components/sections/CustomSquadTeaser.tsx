@@ -112,13 +112,13 @@ export function CustomSquadTeaser() {
 
   return (
     <Section background="light" transitionTo="teal">
-      <div className="text-center space-y-4 mb-12">
+      <div className="text-center space-y-4 mb-8 md:mb-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-[#012326]"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#012326]"
         >
           İhtiyacınıza Göre{" "}
           <span className="text-accent font-baumans">Hesaplayın</span>
@@ -161,7 +161,7 @@ export function CustomSquadTeaser() {
           viewport={{ once: true }}
           className="order-1 lg:order-2"
         >
-          <Card className="shadow-warm border-accent/20 overflow-hidden">
+          <Card className="shadow-warm border-[#346C73]/20 overflow-hidden bg-white">
             <CardContent className="p-0">
               {/* Sector Selection - Compact Grid */}
               <div className="p-4 bg-[#012326]">
@@ -188,21 +188,21 @@ export function CustomSquadTeaser() {
               </div>
 
               {/* Dropdowns Row */}
-              <div className="p-4 space-y-4">
-                <div className="grid grid-cols-3 gap-3">
+              <div className="p-4 space-y-4 bg-white">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* Video Dropdown */}
                   <div className="space-y-1.5">
-                    <label className="text-xs text-[#205459] flex items-center gap-1">
+                    <label className="text-xs text-[#205459] font-medium flex items-center gap-1">
                       <Video className="w-3.5 h-3.5" />
                       Video
                     </label>
                     <Select value={selectedVideo} onValueChange={setSelectedVideo}>
-                      <SelectTrigger className="h-9 text-sm">
+                      <SelectTrigger className="h-9 text-sm bg-white border-[#346C73]/30 text-[#012326]">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-white border-[#346C73]/30">
                         {videoOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
+                          <SelectItem key={option.value} value={option.value} className="text-[#012326]">
                             {option.label}
                           </SelectItem>
                         ))}
@@ -212,17 +212,17 @@ export function CustomSquadTeaser() {
 
                   {/* Photo Dropdown */}
                   <div className="space-y-1.5">
-                    <label className="text-xs text-[#205459] flex items-center gap-1">
+                    <label className="text-xs text-[#205459] font-medium flex items-center gap-1">
                       <ImageIcon className="w-3.5 h-3.5" />
                       Fotoğraf
                     </label>
                     <Select value={selectedPhoto} onValueChange={setSelectedPhoto}>
-                      <SelectTrigger className="h-9 text-sm">
+                      <SelectTrigger className="h-9 text-sm bg-white border-[#346C73]/30 text-[#012326]">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-white border-[#346C73]/30">
                         {photoOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
+                          <SelectItem key={option.value} value={option.value} className="text-[#012326]">
                             {option.label}
                           </SelectItem>
                         ))}
@@ -232,17 +232,17 @@ export function CustomSquadTeaser() {
 
                   {/* Shooting Dropdown */}
                   <div className="space-y-1.5">
-                    <label className="text-xs text-[#205459] flex items-center gap-1">
+                    <label className="text-xs text-[#205459] font-medium flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
                       Çekim
                     </label>
                     <Select value={selectedShooting} onValueChange={setSelectedShooting}>
-                      <SelectTrigger className="h-9 text-sm">
+                      <SelectTrigger className="h-9 text-sm bg-white border-[#346C73]/30 text-[#012326]">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-white border-[#346C73]/30">
                         {shootingOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
+                          <SelectItem key={option.value} value={option.value} className="text-[#012326]">
                             {option.label}
                           </SelectItem>
                         ))}

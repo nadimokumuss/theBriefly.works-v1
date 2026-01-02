@@ -37,13 +37,13 @@ const testimonials = [
 export function SocialProof() {
   return (
     <Section background="primary" transitionTo="light">
-      <div className="text-center space-y-4 mb-16">
+      <div className="text-center space-y-4 mb-10 md:mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-white"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
         >
           Markalar Neden <span className="gradient-text-white-to-ocean font-baumans">Bizi Seçiyor</span>?
         </motion.h2>

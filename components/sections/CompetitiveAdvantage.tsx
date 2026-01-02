@@ -47,13 +47,13 @@ const comparisons = [
 export function CompetitiveAdvantage() {
   return (
     <Section background="teal" transitionTo="light">
-      <div className="text-center space-y-4 mb-16">
+      <div className="text-center space-y-4 mb-10 md:mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-white"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white"
         >
           Geleneksel Ajans ve Freelancer&apos;lara Karşı{" "}
           <span className="gradient-text-white-to-ocean font-baumans">Rekabetçi Avantajımız</span>
@@ -131,24 +131,24 @@ export function CompetitiveAdvantage() {
               <br />
               The Briefly ile aynı hizmetler için yılda sadece ₺180.000 - ₺900.000 ödersiniz.
             </p>
-            <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
               <div>
-                <p className="text-4xl font-bold text-destructive/70 mb-2">
+                <p className="text-3xl sm:text-4xl font-bold text-destructive/70 mb-2">
                   ₺1.200.000
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   Ajans Yıllık Maliyet
                 </p>
               </div>
               <div>
-                <p className="text-4xl font-bold text-accent mb-2">₺420.000</p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-3xl sm:text-4xl font-bold text-accent mb-2">₺420.000</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   The Briefly Yıllık Maliyet
                 </p>
               </div>
               <div>
-                <p className="text-4xl font-bold text-accent mb-2">₺780.000</p>
-                <p className="text-sm font-semibold text-accent">
+                <p className="text-3xl sm:text-4xl font-bold text-accent mb-2">₺780.000</p>
+                <p className="text-xs sm:text-sm font-semibold text-accent">
                   Yıllık Tasarrufunuz
                 </p>
               </div>
