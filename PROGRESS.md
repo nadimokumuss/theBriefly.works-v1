@@ -7,14 +7,22 @@
 
 ## 📍 Güncel Durum
 
-**Tarih:** 2026-01-01
+**Tarih:** 2026-01-04
 **Bilgisayar:** Ev
 **Phase:** Phase 1 - Public Pages Development
-**Odak:** Section 3-4 revizyonları + Brify maskot
+**Odak:** Küçük düzeltmeler
 
 ---
 
-## ✅ Bu Session'da Tamamlananlar (2026-01-01 - Akşam)
+## ✅ Bu Session'da Tamamlananlar (2026-01-04)
+
+### Navigasyon Düzeltmesi
+- [x] Header'da "Nasıl Çalışır" → "Nasıl Çalışır?" (soru işareti eklendi)
+- [x] Footer'da "Nasıl Çalışır" → "Nasıl Çalışır?" (soru işareti eklendi)
+
+---
+
+## ✅ Önceki Session (2026-01-01 - Akşam)
 
 ### Pricing Güncellemesi (Section 3 - PricingPreview)
 - [x] `config/pricing.ts` yeni fiyatlarla güncellendi:
@@ -222,6 +230,6 @@ npm run sync-end      # İş bitince (commit + push)
 
 ---
 
-**Son Güncelleme:** 2026-01-01 (Akşam)
+**Son Güncelleme:** 2026-01-04
 **Güncelleyen:** Claude
 **Sonraki Adım:** Section 6-10 kontrol + Mobil test + /paketler sayfası

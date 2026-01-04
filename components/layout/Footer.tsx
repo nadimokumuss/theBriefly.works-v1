@@ -5,7 +5,7 @@ const footerLinks = {
   product: [
     { href: "/paketler", label: "Paketler" },
     { href: "/paketler#custom-builder", label: "Custom Squad Builder" },
-    { href: "/nasil-calisir", label: "Nasıl Çalışır" },
+    { href: "/nasil-calisir", label: "Nasıl Çalışır?" },
     { href: "/satis-ortakligi", label: "Satış Ortağı" },
   ],
   company: [

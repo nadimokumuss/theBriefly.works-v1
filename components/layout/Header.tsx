@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { href: "/", label: "Ana Sayfa" },
   { href: "/paketler", label: "Paketler" },
-  { href: "/nasil-calisir", label: "Nasıl Çalışır" },
+  { href: "/nasil-calisir", label: "Nasıl Çalışır?" },
   { href: "/satis-ortakligi", label: "Satış Ortağı" },
 ];
 
